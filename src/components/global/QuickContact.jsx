@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { mail, whatsapp, instagram, linkedIn, ArrowUpRight, } from "@/components/SVGs";
+import { mail, whatsapp, instagram, linkedIn, ArrowUpRight, } from "@/components/svgs/index";
 
 export default function QuickContact() {
 	const [showContactHoverIndex, setShowContactHoverIndex] = useState(null);
