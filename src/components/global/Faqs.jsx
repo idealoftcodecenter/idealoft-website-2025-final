@@ -4,8 +4,7 @@ import { useEffect, useState, useRef, useMemo } from "react";
 import parse from "html-react-parser";
 import Heading from "@/components/global/text/Heading";
 
-import { ArrowCursorDown, arrowCricleUp } from "@/components/SVGs";
-import Paragraph from "./text/Paragraph";
+import { ArrowCursorDown, arrowCricleUp } from "@/components/svgs/index";
 
 const workFAQDataNotExpanded = [
 	{
