@@ -2,20 +2,303 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
+	src: url('/assets/fonts/Atkinson-Hyperlegible-Regular-102.woff2') format('woff2'),
+		url('/assets/fonts/Atkinson-Hyperlegible-Regular-102.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
+	src: url('/assets/fonts/Atkinson-Hyperlegible-Bold-102.woff2') format('woff2'),
+		url('/assets/fonts/Atkinson-Hyperlegible-Bold-102.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@layer base {
+	.font-serif {
+		font-family: var(--font-eb-garamond), serif;
+	}
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #ffffff;
+	--foreground: #25262C;
+	--spacing-unit: 2rem;
+	--container-width: calc(90% - 8px);
+}
+@media (min-width: 640px) {
+	:root {
+		--spacing-unit: 2rem;
+	}
+}
+@media (min-width: 768px) {
+	:root {
+		--spacing-unit: 2.5rem;
+		--container-width: calc(42rem + 8px);
+	}
+}
+@media (min-width: 1024px) {
+	:root {
+		--spacing-unit: 2.5rem;
+		--container-width: calc(48rem + 8px);
+	}
+}
+@media (min-width: 1280px) {
+	:root {
+		--spacing-unit: 3rem;
+		--container-width: calc(66rem + 8px);
+	}
+}
+@media (min-width: 1536px) {
+	:root {
+		--spacing-unit: 3rem;
+		--container-width: calc(90rem + 8px);
+	}
+}
+@media (min-width: 1800px) {
+	:root {
+		--spacing-unit: 3rem;
+		--container-width: calc(96rem + 8px);
+	}
+}
+
+html, body {
+	font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+.w-unit-2 {
+	width: calc(var(--spacing-unit) * 2);
+}
+.h-unit-2 {
+	height: calc(var(--spacing-unit) * 2);
+}
+
+
+/* ========== CONTAINER STYLES */
+.container {
+	width: var(--container-width);
+	margin: 0 calc(5% - 4px) 0 calc(5% + 4px);
+	border-left: 2px solid #E0E5F6;
+	border-right: 2px solid #E0E5F6;
+	padding-left: 8px;
+	position: relative;
+}
+.container::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 8px;
+	border-right: 2px solid #E0E5F6;
+}
+/* ========== LINES STYLES */
+.book-lines {
+	background-image: repeating-linear-gradient(to bottom, white, white 1px, transparent 1px, transparent calc(1 * var(--spacing-unit)));
+	background-size: 100% auto;
+}
+@media (min-width: 640px) {
+}
+@media (min-width: 768px) {
+	.container {
+		margin: 0 calc((100% - 42rem) / 2 - 4px);
+	}
+}
+@media (min-width: 1024px) {
+	.container {
+		margin: 0 calc((100% - 48rem) / 2 - 4px);
+	}
+}
+@media (min-width: 1280px) {
+	.container {
+		margin: 0 calc((100% - 66rem) / 2 - 4px);
+	}
+}
+@media (min-width: 1536px) {
+	.container {
+		margin: 0 calc((100% - 90rem) / 2 - 4px);
+	}
+}
+@media (min-width: 1800px) {
+	.container {
+		margin: 0 auto;
+		margin: 0 calc((100% - 96rem) / 2 -4px);
+	}
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.oswald {
+	font-family: "Oswald", sans-serif;
+}
+
+
+
+/* ========== BACKGROUDN NOISE STYLE */
+.bg-noise {
+	background: url("/assets/bg/bg-noise-1.png"), #fff;
+	/* background: url("/assets/bg/bg-noise-2.png"), #aaa; */
+	background-size: 300px 300px;
+	animation: 250ms steps(10, end) 0s infinite alternate-reverse none running noise-animation;
+}
+@keyframes noise-animation {
+	0% { background-position: 0% 0%; }
+	10% { background-position: -5% -5%; }
+	20% { background-position: -10% 5%; }
+	30% { background-position: 5% -10%; }
+	40% { background-position: -5% 15%; }
+	50% { background-position: -10% 5%; }
+	60% { background-position: 5% 5%; }
+	70% { background-position: 0% 10%; }
+	80% { background-position: -5% -5%; }
+	90% { background-position: 10% 5%; }
+}
+
+.bold {
+	font-weight: 600;
+}
+* {
+	line-height: var(--spacing-unit);
+	vertical-align: bottom !important;
+}
+
+.nav-overlay {
+	position: absolute;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+	pointer-events: none;
+	z-index: 0;
+	opacity: 0;
+}
+
+.nav-overlay.active {
+	opacity: 1;
+}
+
+
+
+.floating-nav {
+    position: fixed;
+    bottom: var(--spacing-unit);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3E4147;
+    width: 32px;
+	height: 32px;
+}
+
+
+.mask-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+    width: 100%;
+    height: 300px;
+    background: #1abc9c;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    /* Initial mask using clip-path - fully visible */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+.sticker-front {
+	mask-image: linear-gradient(black, black);
+    mask-composite: exclude;
+    -webkit-mask-image: linear-gradient(black, black);
+    -webkit-mask-composite: destination-out;
+	-webkit-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1), inset 0 2px 2px rgba(255,255,255,0.7);
+	-moz-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1), inset 0 2px 2px rgba(255,255,255,0.7);
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1), inset 0 2px 2px rgba(255,255,255,0.7);
+}
+
+
+
+/* ===================== Company Overview container styles ===================== */
+/* ===================== Company Overview container styles ===================== */
+.company-experience-overview {
+	height: calc(var(--spacing-unit) * 22);
+	background: #fff url('/assets/bg/world-map.webp') center bottom no-repeat fixed;
+}
+@media (min-width: 768px) {
+	.company-experience-overview {
+		height: calc(var(--spacing-unit) * 14);
+	}
+}
+
+
+
+/* ===================== Social media link colors ===================== */
+/* ===================== Social media link colors ===================== */
+.mail .filled, .whatsapp .filled, .linkedIn .filled {
+	fill: #25262C;
+}
+.mail:hover .filled {
+	fill: #537AFF;
+}
+.whatsapp:hover .filled {
+	fill: #25d366;
+}
+.linkedIn:hover .filled {
+	fill: #0077b5
+}
+
+/* Default (grayscale) */
+.instagram #insta-gradient stop:nth-child(1) { stop-color: #25262C; }
+.instagram #insta-gradient stop:nth-child(2) { stop-color: #25262C; }
+.instagram #insta-gradient stop:nth-child(3) { stop-color: #25262C; }
+.instagram #insta-gradient stop:nth-child(4) { stop-color: #25262C; }
+.instagram #insta-gradient stop:nth-child(5) { stop-color: #25262C; }
+
+/* On hover: Instagram colors */
+.instagram:hover #insta-gradient stop:nth-child(1) { stop-color: #feda75; }
+.instagram:hover #insta-gradient stop:nth-child(2) { stop-color: #fa7e1e; }
+.instagram:hover #insta-gradient stop:nth-child(3) { stop-color: #d62976; }
+.instagram:hover #insta-gradient stop:nth-child(4) { stop-color: #962fbf; }
+.instagram:hover #insta-gradient stop:nth-child(5) { stop-color: #4f5bd5; }
+.instagram-gradient {
+	background: #f09433; 
+	background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+	background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+	background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+
+
+.card-grey-gradient {
+	box-shadow: inset 0 1px 1px #fff, 1px 1px 3px rgba(0,0,0,.3);
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+60&0.9+0,0.2+60 */
+	background: linear-gradient(to bottom,  rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.5) 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+
+.company-experience-overview ul {
+	list-style-type: disc;
 }
