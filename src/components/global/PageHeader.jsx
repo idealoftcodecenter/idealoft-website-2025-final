@@ -1,15 +1,17 @@
 "use client"
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import NavOverlay from './NavOverlay';
 import NavLink from './NavLink';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 import FloatingNav from "./FloatingNav";
+import DarkBackdrop from '@/components/global/DarkBackdrop';
 
 const PageHeader = () => {
     const pathName = usePathname();
+	const [isContactFormOpen, setContactFormOpen] = useState(false);
 
     return (
         <>
@@ -25,7 +27,7 @@ const PageHeader = () => {
                         <NavLink href="/our-work">Our Work</NavLink>
                     </li>
                     <li className="relative z-10 h-full">
-                        <button className="flex items-center justify-center px-8 h-full uppercase">Quick Contact</button>
+                        <button onClick={() => { setContactFormOpen(!isContactFormOpen); }} className="flex items-center justify-center px-8 h-full uppercase">Quick Contact</button>
                     </li>
                     {/* ✅ overlay must be inside the same ul */}
                     <div className="nav-overlay absolute bg-[#D8FF69] rounded transition-all duration-200 pointer-events-none z-0"></div>
@@ -34,6 +36,11 @@ const PageHeader = () => {
                 </ul>
             </nav>
             <FloatingNav />
+			{isContactFormOpen && (
+				<DarkBackdrop onClose={() => setContactFormOpen(false)}>
+					{/*  */}
+				</DarkBackdrop>
+			)}
         </>
     );
 };

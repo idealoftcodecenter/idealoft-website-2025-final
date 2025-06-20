@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { AnimatePresence, motion, stagger } from "framer-motion";
 const Lottie = dynamic(() => import("react-lottie"), { ssr: false, });
+import { Play, clientEye, clientPause } from "@/components/svgs/index";
 
 import ICICIBank from "@/lottie-json/ICICIBank.json";
 import iBank from "@/lottie-json/iBank.json";
@@ -303,7 +304,25 @@ export default function ClientsGrid() {
 
 							return (
 								<motion.div layout key={client.alt} variants={itemVariants} transition={{ type: "spring", damping: 22, stiffness: 200 }}>
-									<div style={{ height: "calc(var(--spacing-unit) * 6)", width: "auto" }} className={`bg-white border-b-2 border-b-[#E0E5F6] ${ !isLastInRow ? 'border-r-2 border-r-[#E0E5F6]' : '' }`}>
+									<div
+										key={`client_${index}`}
+										onMouseEnter={() => {
+											setClientCardHoverIndex(index);
+											setAnimationProgress(0);
+											setElapsedTime(0);
+										}}
+										onMouseLeave={() => {
+											setClientCardHoverIndex(null);
+											setAnimationProgress(0);
+											setElapsedTime(0);
+										}}
+										onClick={() => {
+											setPauseAnimation(!pauseAnimation);
+										}}
+										style={{ height: "calc(var(--spacing-unit) * 6)", width: "auto" }} className={`relative bg-white border-b-2 border-b-[#E0E5F6] ${ !isLastInRow ? 'border-r-2 border-r-[#E0E5F6]' : '' }`}>
+										<div className="w-full flex items-start justify-start h-[2px] bg-transparent absolute top-0 left-0 z-10">
+											<div className="h-full bg-green transition-all duration-300" style={{ width: clientCardHoverIndex === index ? animationProgress + "%" : 0, }} />
+										</div>
 										<Lottie
 											ref={animationRef}
 											options={{ loop: false, autoplay: false, animationData: client?.lottie, rendererSettings: { preserveAspectRatio: "xMidYMid slice", }, }}
@@ -327,6 +346,10 @@ export default function ClientsGrid() {
 												},
 											]}
 										/>
+										<div className="absolute bottom-4 left-4 border border-green rounded-full px-3 py-1 inline-flex items-center justify-center space-x-1 bg-white bg-opacity-70 backdrop-blur">
+											<span className="text-blue"> {clientCardHoverIndex !== index ? clientEye : pauseAnimation ? Play : clientPause } </span>
+											<span className="font-sans font-bold text-xs text-gray-600"> 235 </span>
+										</div>
 									</div>
 								</motion.div>
 							);
