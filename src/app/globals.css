@@ -70,6 +70,7 @@
 
 html, body {
 	font-family: 'Atkinson Hyperlegible', sans-serif;
+	color: #25262C;
 }
 .w-unit-2 {
 	width: calc(var(--spacing-unit) * 2);
