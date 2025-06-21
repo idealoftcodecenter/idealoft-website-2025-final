@@ -17,7 +17,7 @@ const PageHeader = () => {
         <>
             <nav className="w-full flex md:justify-end items-center nav-list relative">
                 <Link href="/" className="md:absolute left-0 top-0 w-unit-2 h-unit-2 z-10 bg-white">
-                    <Image src="/assets/cont/idealoft-logo.svg" alt="Idealoft Studio Logo" width={100} height={100} className="w-full h-full" />
+                    <Image src="/assets/cont/Idealoft-logo.svg" alt="Idealoft Studio Logo" width={100} height={100} className="w-full h-full" />
                 </Link>
                 <ul className="hidden relative md:flex flex-wrap mt-[var(--spacing-unit)] h-[var(--spacing-unit)]">
                     <li className={`relative z-10 h-full ${pathName === "/our-clients" && "active"}`}>
