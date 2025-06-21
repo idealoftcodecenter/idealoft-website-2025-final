@@ -6,7 +6,7 @@ import FAQSection from "@/components/global/Faqs";
 
 export default function OurClients() {
 	return (
-		<main className="container overflow-hidden lg:pt-[calc(var(--spacing-unit))]">
+		<main className="container lg:pt-[calc(var(--spacing-unit))]">
 			<Heading level={1} className="pl-4 md:pl-6 lg:pl-8" style={{marginTop: "var(--spacing-unit)", fontSize: "calc(var(--spacing-unit) * .7)", lineHeight: "var(--spacing-unit)" }}>
 				We build <span className="text-[#DE90A5]">scalable Digital Products</span> with a<br className="hidden md:block" />focus on strategy-led design 
 			</Heading>
