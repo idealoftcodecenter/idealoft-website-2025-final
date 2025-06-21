@@ -46,7 +46,7 @@ const DesktopView = () => {
 	}, [expanded]);
 
 	return (
-		<div className="flex max-sm:hidden flex-col w-full relative mb-20 border-b-2 border-b-gray-200" style={{marginTop: "var(--spacing-unit)", paddingBottom: "calc(var(--spacing-unit) * 2)"}}>
+		<div className="flex max-sm:hidden flex-col w-full relative border-b-2 border-b-gray-200" style={{marginTop: "var(--spacing-unit)", paddingBottom: ""}}>
 			{workFAQDataNotExpanded?.map((item, index) => {
 				return (
 					<div key={`faq_${index}`}>
@@ -72,7 +72,7 @@ const DesktopView = () => {
 			</div>
 
 			<div className="w-full absolute left-0 -bottom-6 inline-flex items-center justify-center">
-				<div className="w-auto h-auto rounded-full inline-flex items-center justify-center" style={{ boxShadow: "0px 4px 4px 0px #00000040", }}>
+				<div className="w-auto h-auto rounded-full inline-flex items-center justify-center" style={{ boxShadow: "0px 4px 4px 0px rgba(0,0,0,.4)", }}>
 					<button onClick={() => { setExpanded(!expanded); }} className={`cursor-pointer h-auto w-auto rounded-full outline-none border-none ${ expanded ? "rotate-180" : "" } transition-all duration-[600ms]`}>
 						{ArrowCursorDown}
 					</button>
