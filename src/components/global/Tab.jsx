@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-import { starTab } from "@/components/SVGs";
+import { starTab } from "@/components/svgs";
 
 export function Tab({ data = [], handleActiveIndex = () => null }) {
   const [activeTab, setActiveTab] = useState(0);
