@@ -30,7 +30,7 @@ export default function Hero() {
 
 		const tl = gsap.timeline({
 			defaults: { 
-				duration: 10,
+				duration: 20,
 				ease: 'power1.out' 
 			},
 			scrollTrigger: {
