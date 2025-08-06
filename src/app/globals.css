@@ -423,3 +423,7 @@ body {
 	filter: blur(20px);
 	opacity: .3;
 }
+#landing-point-1,
+#landing-point-2 {
+	transform: scale(0);
+}
