@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import parse from "html-react-parser";
 
-import { arrowAccordion } from "@/components/SVGs";
+import { arrowAccordion } from "@/components/svgs";
 import { processAccordion } from "@/constants/process.constant";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
