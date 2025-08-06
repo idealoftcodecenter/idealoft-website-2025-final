@@ -32,7 +32,7 @@ export default function Filters({ tabs, activeTab, onTabClick }) {
 	}, [activeTab]);
   
     return (
-        <section className="w-full mt-[var(--spacing-unit)] border-y-2 border-y-[#E0E5F6] tab-list flex overflow-hidden" style={{ height: "calc(var(--spacing-unit) + 1px)" }}>
+        <section className="w-full mt-[var(--spacing-unit)] border-y-2 border-y-[#E0E5F6] tab-list flex md:overflow-hidden" style={{ height: "calc(var(--spacing-unit) + 1px)" }}>
 			<ul className='hidden md:flex items-center h-full relative mx-[-8px]'>
 				{tabs.map((tab, index) => {
 					const isActive = index === activeTab;

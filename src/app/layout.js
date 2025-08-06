@@ -1,6 +1,7 @@
 import { EB_Garamond, Oswald } from 'next/font/google';
 import './globals.css';
 import PageHeader from '@/components/global/PageHeader';
+import WebsiteFooter from '@/components/global/WebsiteFooter';
 
 // const workSans = Work_Sans({
 //     variable: '--font-work-sans',
@@ -12,7 +13,7 @@ import PageHeader from '@/components/global/PageHeader';
 const oswald = Oswald({
     variable: '--font-oswald',
     subsets: ['latin'],
-    weight: '700', // only bold
+    weight: ['400', '700'], // only bold
     display: 'swap',
 });
 
@@ -33,7 +34,7 @@ export default function RootLayout({ children }) {
         <html lang="en" className={`${oswald.variable} ${ebGaramond.variable}`}>
             <body className="antialiased relative">
                 {/* background with noise */}
-                <div className="bg-noise w-full">
+                <div className="bg-noise w-full overflow-hidden">
                     {/* background with lines */}
                     <div className="book-lines w-full">
                         <section className="container overflow-hidden mx-auto">
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
                         {children}
                     </div>
                 </div>
+				<WebsiteFooter />
             </body>
         </html>
     );

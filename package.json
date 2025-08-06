@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "framer-motion": "^12.12.1",
     "gsap": "^3.13.0",
-    "html-react-parser": "^5.2.5",
+    "html-react-parser": "^5.2.6",
     "next": "15.1.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-lottie": "^1.2.10"
+    "react-lottie": "^1.2.10",
+    "swiper": "^11.2.10",
+    "wavesurfer.js": "^7.10.1"
   },
   "devDependencies": {
     "postcss": "^8",

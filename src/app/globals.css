@@ -29,24 +29,37 @@
 :root {
 	--background: #ffffff;
 	--foreground: #25262C;
+	--blue: #537AFF;
+	--cedar: #DE90A5;
+	--neonGreen: #D8FF69;
+	--ilGreen: #6AB47F;
+	--tabGrey: #E3E4E8;
+	--ilPink: #FEE5E5;
+	--ilBgGrey: #F8F8F8;
 	--spacing-unit: 2rem;
 	--container-width: calc(90% - 8px);
+	--card-height-multiplier: 16;
+	--home-work-para-height-multiplier: 4;
 }
 @media (min-width: 640px) {
 	:root {
 		--spacing-unit: 2rem;
+		--card-height-multiplier: 15;
 	}
 }
 @media (min-width: 768px) {
 	:root {
 		--spacing-unit: 2.5rem;
 		--container-width: calc(42rem + 8px);
+		--card-height-multiplier: 14;
+		--home-work-para-height-multiplier: 2;
 	}
 }
 @media (min-width: 1024px) {
 	:root {
 		--spacing-unit: 2.5rem;
 		--container-width: calc(48rem + 8px);
+		--card-height-multiplier: 13;
 	}
 }
 @media (min-width: 1280px) {
@@ -79,6 +92,10 @@ html, body {
 	height: calc(var(--spacing-unit) * 2);
 }
 
+/* ========== COLORS */
+.text-blue {
+	color: #537AFF;
+}
 
 /* ========== CONTAINER STYLES */
 .container {
@@ -98,6 +115,10 @@ html, body {
 	height: 100%;
 	width: 8px;
 	border-right: 2px solid #E0E5F6;
+}
+.footer-container {
+	width: var(--container-width);
+	position: relative;
 }
 /* ========== LINES STYLES */
 .book-lines {
@@ -213,33 +234,6 @@ body {
 }
 
 
-.mask-layer {
-	position: absolute;
-	left: 0;
-	top: 0;
-    width: 100%;
-    height: 300px;
-    background: #1abc9c;
-    color: white;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-
-    /* Initial mask using clip-path - fully visible */
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-.sticker-front {
-	mask-image: linear-gradient(black, black);
-    mask-composite: exclude;
-    -webkit-mask-image: linear-gradient(black, black);
-    -webkit-mask-composite: destination-out;
-	-webkit-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1), inset 0 2px 2px rgba(255,255,255,0.7);
-	-moz-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1), inset 0 2px 2px rgba(255,255,255,0.7);
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1), inset 0 2px 2px rgba(255,255,255,0.7);
-}
-
 
 
 /* ===================== Company Overview container styles ===================== */
@@ -302,4 +296,130 @@ body {
 
 .company-experience-overview ul {
 	list-style-type: disc;
+}
+
+
+/* ===================== Social media link colors ===================== */
+/* ===================== Social media link colors ===================== */
+.footer-bg {
+	background: url("/assets/bg/bg-noise-1.png"), #1B1B1B;
+	/* background: url("/assets/bg/bg-noise-2.png"), #aaa; */
+	background-size: 500px 500px;
+	animation: 350ms steps(10, end) 0s infinite alternate-reverse none running noise-animation;
+}
+
+.tab-inner-shadow {
+	box-shadow: 0 2px 2px rgba(0,0,0,.05);
+}
+.tab-bar-shadow {
+	box-shadow: 0 1px 1px 1px rgba(255,255,255,1)
+}
+
+.rotatable-cards {
+	cursor: none;
+}
+.rotatable-cards.audio-player-wrapper {
+	cursor: default;
+}
+.custom-cursor.hidden {
+	opacity: 0;
+    pointer-events: none;
+}
+
+
+
+/* ===================== Play pause button styles ===================== */
+/* ===================== Play pause button styles ===================== */
+.playPauseButton {
+	position: relative;
+	border: 4px solid #25262C;
+	outline:none;
+	height: 40px;
+	width: 40px;
+	cursor: pointer;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+
+.playPauseButton:focus {
+	outline:none;
+}
+
+
+.playPauseButton:before {
+	content: "";
+	position: absolute;
+	top: 6px;
+	left: 11px;
+	height: 0;
+	border-style: solid;
+	border-width: 10px 0 10px 14px;
+	border-color: transparent transparent transparent #25262C; 
+	transition: .218s ease;
+}
+
+.playPauseButton.pause:before {
+	height: 16px;
+	left: 8px;
+	top: 8px;
+	border-width: 0 0 0 6px;
+}
+
+/* the button's mouseover/click/hover layer: size, shape, appearance */
+.playPauseButton:after {
+	content: "";
+	position: absolute;
+	background: inherit;
+	width: 0;
+	height: 16px;
+	top: 8px;
+	left: 17px;
+	transition: .218s ease;
+	border-width: 8px 0 8px 0;
+	border-color: #25262C;
+}
+
+.playPauseButton.pause:after {
+	width: 6px;
+}
+
+
+/* ===================== Home hero section stickers animation ===================== */
+/* ===================== Home hero section stickers animation ===================== */
+.masked-front {
+	box-shadow: 0 1px 2px 1px rgba(0,0,0,.1), inset 0 1px 2px 1px rgba(255,255,255,1);
+}
+#sticker-front-mask {
+	x: 100;
+	y: -400;
+	transform: rotate(15deg)
+}
+#masked-back {
+	transform-origin: top right;
+	width: var(--container-width);
+	height: calc(var(--spacing-unit) * 18);
+	transform: translate(-89.2%, 3.2%) rotate(25deg) scale(1.076);
+	/* box-shadow: 10px 10px 30px rgba(0,0,0,.3); */
+}
+.back-image {
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+}
+#back-gradient {
+	height: 100%;
+	width: 3.5%;
+	top: 0;
+	right: 0;
+	/* background: purple; */
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+20,000000+70&0+0,0.9+20,0+70 */
+	background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.9) 20%,rgba(0,0,0,0) 70%);
+}
+#back-shadow {
+	height: 90%;
+	width: 100%;
+	background: black;
+	filter: blur(20px);
+	opacity: .3;
 }

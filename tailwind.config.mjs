@@ -12,11 +12,20 @@ export default {
 			colors: {
 				background: "var(--background)",
 				foreground: "var(--foreground)",
+				blue: "var(--blue)",
+				cedar: "var(--cedar)",
+				neonGreen: "var(--neonGreen)",
+				ilGreen: "var(--ilGreen)",
+				tabGrey: "var(--tabGrey)",
+				ilPink: "var(--ilPink)",
+				ilBgGrey: "var(--ilBgGrey)"
 			},
 			fontFamily: {
 				sans: ['"Atkinson Hyperlegible"', 'sans-serif'],
 				serif: ['var(--font-eb-garamond)', 'serif'],
 				atkinson: ['"Atkinson Hyperlegible"', 'sans-serif'],
+				oswald: ['var(--font-oswald)', 'sans-serif'],
+				display: ['var(--font-oswald)', 'sans-serif'],
 			},
 		},
 	},
