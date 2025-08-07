@@ -30,17 +30,17 @@ export default function Hero() {
 
 		const tl = gsap.timeline({
 			defaults: { 
-				duration: 20,
+				duration: 10,
 				ease: 'power1.out' 
 			},
 			scrollTrigger: {
         		trigger: containerRef.current,
 				start: 'top top',
-				end: '+=100%', // or use pixel value like '+=800'
+				end: '+=200%', // or use pixel value like '+=800'
 				scrub: true,
 				pin: true,
 				// anticipatePin: 1,
-				once: true 
+				// once: true 
 			},
 		});
 

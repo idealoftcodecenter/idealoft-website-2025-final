@@ -3,7 +3,7 @@ import React from 'react';
 const ContactSection = () => {
 	return (
 		<section className="mt-[var(--spacing-unit)] bg-slate-400 h-[var(--spacing-unit)]">
-			<h2>Contact Us</h2>
+			{/* <h2>Contact Us</h2>
 			<form>
 				<div>
 					<label htmlFor="name">Name:</label>
@@ -18,7 +18,7 @@ const ContactSection = () => {
 					<textarea id="message" name="message" required />
 				</div>
 				<button type="submit">Send</button>
-			</form>
+			</form> */}
 		</section>
 	);
 };

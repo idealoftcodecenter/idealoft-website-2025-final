@@ -36,23 +36,25 @@ export default function WorkSection() {
 	};
 
 	return (
-		<section style={{ marginTop: "calc(var(--spacing-unit) * 2)", marginBottom: "calc(var(--spacing-unit) * 4)" }}>
-			<Heading level={6} className="text-[24px] pl-4 md:pl-6 lg:pl-8 max-xl:text-base text-[#B6BAC7] max-sm:text-lg uppercase font-medium">
-				OUR WORK
-			</Heading>
-			<Heading level={1} className="pl-4 md:pl-6 lg:pl-8" style={{ fontSize: "calc(var(--spacing-unit) * .7)", lineHeight: "var(--spacing-unit)" }}>
-				Building products with your business<br className="hidden md:block" />objectives in mind.
-			</Heading>
+		<>
+			<section style={{ marginTop: "calc(var(--spacing-unit) * 2)" }}>
+				<Heading level={6} className="text-[24px] pl-4 md:pl-6 lg:pl-8 max-xl:text-base text-[#B6BAC7] max-sm:text-lg uppercase font-medium">
+					OUR WORK
+				</Heading>
+				<Heading level={1} className="pl-4 md:pl-6 lg:pl-8" style={{ fontSize: "calc(var(--spacing-unit) * .7)", lineHeight: "var(--spacing-unit)" }}>
+					Building products with your business<br className="hidden md:block" />objectives in mind.
+				</Heading>
 
-			<div className="inline-flex flex-col w-full h-auto">
-				{
-					tabContentData && tabContentLeftData && 
-					<>
-						<Filters tabs={tabs} activeTab={activeTab} onTabClick={handleActiveIndex} />
-						<TabContent data={tabContentData} leftSideData={tabContentLeftData} />
-					</>
-				}
-			</div>
-		</section>
+				<div className="inline-flex flex-col w-full h-auto">
+					{
+						tabContentData && tabContentLeftData && 
+						<>
+							<Filters tabs={tabs} activeTab={activeTab} onTabClick={handleActiveIndex} />
+							<TabContent data={tabContentData} leftSideData={tabContentLeftData} />
+						</>
+					}
+				</div>
+			</section>
+		</>
 	);
 }
