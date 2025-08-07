@@ -5,29 +5,29 @@ import { AnimatePresence, motion, stagger } from "framer-motion";
 const Lottie = dynamic(() => import("react-lottie"), { ssr: false, });
 import { Play, clientEye, clientPause } from "@/components/svgs/index";
 
-// import ICICIBank from "@/lottie-json/ICICIBank.json";
-// import iBank from "@/lottie-json/iBank.json";
-// import BajajFinserv from "@/lottie-json/BajajFinserv.json";
-// import BBC from "@/lottie-json/BBC.json";
-// import Coquette from "@/lottie-json/Coquette.json";
-// import Exponent from "@/lottie-json/Exponent.json";
-// import TheConsciousBaker from "@/lottie-json/TheConsciousBaker.json";
-// import H3Mart from "@/lottie-json/H3Mart.json";
-// import ICICIPOS from "@/lottie-json/ICICIPOS.json";
-// import ICICIPru from "@/lottie-json/ICICIPru.json";
-// import Initia from "@/lottie-json/Initia.json";
-// import InstaBiz from "@/lottie-json/InstaBiz.json";
-// import Kotak from "@/lottie-json/Kotak.json";
-// import Levis from "@/lottie-json/Levis.json";
-// import LivLyt from "@/lottie-json/LivLyt.json";
-// import MightyCrust from "@/lottie-json/MightyCrust.json";
-// import Piramal from "@/lottie-json/Piramal.json";
-// import Mintifi from "@/lottie-json/Mintifi.json";
-// import Rata from "@/lottie-json/Rata.json";
-// import Reciplay from "@/lottie-json/Reciplay.json";
-// import Sucharita from "@/lottie-json/Sucharita.json";
-// import TheTestTribe from "@/lottie-json/TheTestTribe.json";
-// import UnsweetenedBeauty from "@/lottie-json/UnsweetenedBeauty.json";
+import ICICIBank from "@/lottie-json/ICICIBank.json";
+import iBank from "@/lottie-json/iBank.json";
+import BajajFinserv from "@/lottie-json/BajajFinserv.json";
+import BBC from "@/lottie-json/BBC.json";
+import Coquette from "@/lottie-json/Coquette.json";
+import Exponent from "@/lottie-json/Exponent.json";
+import TheConsciousBaker from "@/lottie-json/TheConsciousBaker.json";
+import H3Mart from "@/lottie-json/H3Mart.json";
+import ICICIPOS from "@/lottie-json/ICICIPOS.json";
+import ICICIPru from "@/lottie-json/ICICIPru.json";
+import Initia from "@/lottie-json/Initia.json";
+import InstaBiz from "@/lottie-json/InstaBiz.json";
+import Kotak from "@/lottie-json/Kotak.json";
+import Levis from "@/lottie-json/Levis.json";
+import LivLyt from "@/lottie-json/LivLyt.json";
+import MightyCrust from "@/lottie-json/MightyCrust.json";
+import Piramal from "@/lottie-json/Piramal.json";
+import Mintifi from "@/lottie-json/Mintifi.json";
+import Rata from "@/lottie-json/Rata.json";
+import Reciplay from "@/lottie-json/Reciplay.json";
+import Sucharita from "@/lottie-json/Sucharita.json";
+import TheTestTribe from "@/lottie-json/TheTestTribe.json";
+import UnsweetenedBeauty from "@/lottie-json/UnsweetenedBeauty.json";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { useEffect, useRef, useState } from "react";
 import Filters from "./Filters";
@@ -36,143 +36,142 @@ export const clientList = [
     {
         id: 1,
         alt: "ICICI Bank",
-        lottiePath: "/lottie-json/ICICIBank.json",
+        lottie: ICICIBank,
         categories: ["enterprise", "tech"],
     },
     {
         id: 2,
         alt: "Bajaj Finserv",
-        lottiePath: "/lottie-json/BajajFinserv.json",
+        lottie: BajajFinserv,
         categories: ["enterprise", "tech", "communication"],
     },
     {
         id: 3,
         alt: "BBC",
-        lottiePath: "/lottie-json/BBC.json",
+        lottie: BBC,
         categories: ["enterprise", "communication"],
     },
     {
         id: 4,
         alt: "Levis",
-        lottiePath: "/lottie-json/Levis.json",
+        lottie: Levis,
         categories: ["brand", "communication"],
     },
     {
         id: 5,
         alt: "Coquette",
-        lottiePath: "/lottie-json/Coquette.json",
+        lottie: Coquette,
         categories: ["brand", "communication"],
     },
     {
         id: 6,
         alt: "Exponent",
-        lottiePath: "/lottie-json/Exponent.json",
+        lottie: Exponent,
         categories: ["mvp", "communication"],
     },
     {
         id: 7,
         alt: "The Conscious Baker",
-        lottiePath: "/lottie-json/TheConsciousBaker.json",
+        lottie: TheConsciousBaker,
         categories: ["brand", "strategy"],
     },
     {
         id: 8,
         alt: "iBank",
-        lottiePath: "/lottie-json/iBank.json",
+        lottie: iBank,
         categories: ["enterprise", "tech"],
     },
     {
         id: 9,
         alt: "H3Mart",
-        lottiePath: "/lottie-json/H3Mart.json",
+        lottie: H3Mart,
         categories: ["brand", "product"],
     },
     {
         id: 10,
         alt: "ICICI POS",
-        lottiePath: "/lottie-json/ICICIPOS.json",
+        lottie: ICICIPOS,
         categories: ["enterprise", "product"],
     },
     {
         id: 11,
         alt: "ICICI Prudential",
-        lottiePath: "/lottie-json/ICICIPru.json",
+        lottie: ICICIPru,
         categories: ["enterprise", "strategy"],
     },
     {
         id: 12,
         alt: "Initia",
-        lottiePath: "/lottie-json/Initia.json",
+        lottie: Initia,
         categories: ["enterprise", "tech"],
     },
     {
         id: 13,
         alt: "ICICI InstaBiz",
-        lottiePath: "/lottie-json/InstaBiz.json",
+        lottie: InstaBiz,
         categories: ["enterprise", "strategy"],
     },
     {
         id: 14,
         alt: "Kotak",
-        lottiePath: "/lottie-json/Kotak.json",
+        lottie: Kotak,
         categories: ["enterprise", "tech"],
     },
     {
         id: 15,
         alt: "LivLyt",
-        lottiePath: "/lottie-json/LivLyt.json",
+        lottie: LivLyt,
         categories: ["mvp", "product"],
     },
     {
         id: 16,
         alt: "MightyCrust",
-        lottiePath: "/lottie-json/MightyCrust.json",
+        lottie: MightyCrust,
         categories: ["startup", "communication"],
     },
     {
         id: 17,
         alt: "Mintifi",
-        lottiePath: "/lottie-json/Mintifi.json",
+        lottie: Mintifi,
         categories: ["startup", "strategy"],
     },
     {
         id: 18,
         alt: "Piramal",
-        lottiePath: "/lottie-json/Piramal.json",
+        lottie: Piramal,
         categories: ["startup", "strategy"],
     },
     {
         id: 19,
         alt: "Rata",
-        lottiePath: "/lottie-json/Rata.json",
+        lottie: Rata,
         categories: ["startup", "tech"],
     },
     {
         id: 20,
         alt: "Reciplay",
-        lottiePath: "/lottie-json/Reciplay.json",
+        lottie: Reciplay,
         categories: ["startup", "product"],
     },
     {
         id: 21,
         alt: "Sucharita",
-        lottiePath: "/lottie-json/Sucharita.json",
+        lottie: Sucharita,
         categories: ["mvp", "tech"],
     },
     {
         id: 22,
         alt: "TheTestTribe",
-        lottiePath: "/lottie-json/TheTestTribe.json",
+        lottie: TheTestTribe,
         categories: ["brand", "product"],
     },
     {
         id: 23,
         alt: "UnsweetenedBeauty",
-        lottiePath: "/lottie-json/UnsweetenedBeauty.json",
+        lottie: UnsweetenedBeauty,
         categories: ["brand", "strategy"],
     },
 ];
-
 
 
 const tabs = [
@@ -204,7 +203,7 @@ const tabs = [
 
 export default function ClientsGrid() {
 
-	const animationRefs = useRef({});
+	const animationRef = useRef(null);
 	const [filteredClients, setFilteredClients] = useState([]);
 
 	const [activeTab, setActiveTab] = useState(0);
@@ -214,8 +213,6 @@ export default function ClientsGrid() {
 	const [animationProgress, setAnimationProgress] = useState(0);
 	const [isAnimating, setIsAnimating] = useState(false);
 	const [elapsedTime, setElapsedTime] = useState(0);
-
-	const [loadedClients, setLoadedClients] = useState({});
 
 	const { width } = useWindowSize();
 
@@ -246,30 +243,6 @@ export default function ClientsGrid() {
 			setFilteredClients(data);
 		}
 	}, [activeTab]);
-
-	useEffect(() => {
-		const loadAllAnimations = async () => {
-			const loaded = {};
-
-			for (const client of clientList) {
-				try {
-					const filename = client.lottiePath.split("/").pop();
-					const module = await import(`@/lottie-json/${filename}`);
-					loaded[client.id] = module.default;
-				} catch (err) {
-					loaded[client.id] = null; // Explicitly mark as failed
-					console.error("Failed to load", client.alt, err);
-				}
-			}
-
-			setLoadedClients(loaded);
-		};
-
-		// Load after a short delay so page render isn't blocked
-		requestIdleCallback?.(loadAllAnimations) || setTimeout(loadAllAnimations, 100);
-
-	}, []);
-
 
 	// useEffect(() => {
 	// 	let interval = null;
@@ -350,46 +323,29 @@ export default function ClientsGrid() {
 										<div className="w-full flex items-start justify-start h-[2px] bg-transparent absolute top-0 left-0 z-10">
 											<div className="h-full bg-green transition-all duration-300" style={{ width: clientCardHoverIndex === index ? animationProgress + "%" : 0, }} />
 										</div>
-										{loadedClients[client.id] === null ? (
-											<div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
-												Failed to load animation
-											</div>
-										) : loadedClients[client.id] ? (
-											<Lottie
-												ref={(ref) => (animationRefs.current[client.id] = ref)}
-												options={{
-													loop: false,
-													autoplay: false,
-													animationData: loadedClients[client.id],
-													rendererSettings: {
-														preserveAspectRatio: "xMidYMid slice",
+										<Lottie
+											ref={animationRef}
+											options={{ loop: false, autoplay: false, animationData: client?.lottie, rendererSettings: { preserveAspectRatio: "xMidYMid slice", }, }}
+											height="100%"
+											width="auto"
+											isStopped={clientCardHoverIndex !== index ? true : false}
+											isPaused={pauseAnimation}
+											isClickToPauseDisabled={true}
+											style={{ cursor: "default", }}
+											eventListeners={[
+												{
+													eventName: "enterFrame",
+													callback: () => setIsAnimating(true),
+												},
+												{
+													eventName: "complete",
+													callback: () => {
+														setIsAnimating(false);
+														setAnimationProgress(100);
 													},
-												}}
-												height="100%"
-												width="auto"
-												isStopped={clientCardHoverIndex !== index}
-												isPaused={pauseAnimation}
-												isClickToPauseDisabled={true}
-												eventListeners={[
-													{
-														eventName: "enterFrame",
-														callback: () => setIsAnimating(true),
-													},
-													{
-														eventName: "complete",
-														callback: () => {
-															setIsAnimating(false);
-															setAnimationProgress(100);
-														},
-													},
-												]}
-											/>
-										) : (
-											<div className="w-full h-full flex items-center justify-center">
-												<div className="w-6 h-6 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
-											</div>
-										)}
-
+												},
+											]}
+										/>
 										<div className="absolute bottom-4 left-4 border border-green rounded-full px-3 py-1 inline-flex items-center justify-center space-x-1 bg-white bg-opacity-70 backdrop-blur">
 											<span className="text-blue"> {clientCardHoverIndex !== index ? clientEye : pauseAnimation ? Play : clientPause } </span>
 											<span className="font-sans font-bold text-xs text-gray-600"> 235 </span>

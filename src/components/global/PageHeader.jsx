@@ -17,7 +17,7 @@ const PageHeader = () => {
     return (
         <>
             <nav className="w-full flex md:justify-end items-center nav-list relative">
-                <Link href="/" className="md:absolute left-0 top-0 w-unit-2 h-unit-2 z-10 bg-white">
+                <Link href="/" className="md:absolute lg:fixed left-0 top-0 w-unit-2 h-unit-2 z-10 bg-white">
                     <Image src="/assets/cont/Idealoft-logo.svg" alt="Idealoft Studio Logo" width={100} height={100} className="w-full h-full" />
                 </Link>
                 <ul className="hidden relative md:flex flex-wrap mt-[var(--spacing-unit)] h-[var(--spacing-unit)]">
@@ -27,9 +27,9 @@ const PageHeader = () => {
                     <li className={`relative z-10 h-full ${pathName === "our-work" && "active"}`}>
                         <NavLink href="/our-work">Our Work</NavLink>
                     </li>
-                    <li className="relative z-10 h-full">
+                    {/* <li className="relative z-10 h-full">
                         <button onClick={() => { setContactFormOpen(!isContactFormOpen); }} className="flex items-center justify-center px-8 h-full uppercase">Quick Contact</button>
-                    </li>
+                    </li> */}
                     {/* ✅ overlay must be inside the same ul */}
                     <div className="nav-overlay absolute bg-[#D8FF69] rounded transition-all duration-200 pointer-events-none z-0"></div>
                     {/* ✅ must come last in ul for overlay layering */}

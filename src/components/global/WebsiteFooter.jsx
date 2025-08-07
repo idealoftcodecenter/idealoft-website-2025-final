@@ -14,7 +14,7 @@ export default function Footer() {
 						<Image src="/assets/cont/footer/team.webp" width={0} height={0} alt="group of people in office" className="w-full h-auto" sizes="100%" style={{ width: '100%', height: 'auto' }} />
 					</div>
 				</div>
-				<div className="w-full flex max-sm:block gap-0">
+				<div className="w-full block xl:flex gap-0">
 					<div className="flex-1 flex p-12 justify-start items-start border-r border-r-[#717171]">
 						<div className="w-[60px] h-[60px] px-3 py-1">
 							<svg width="34" height="19" viewBox="0 0 34 19" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">

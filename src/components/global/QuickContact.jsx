@@ -10,11 +10,11 @@ export default function QuickContact() {
 	return (
 		<section id="quick-contact-section" className="w-full inline-flex max-sm:flex-col items-center max-sm:items-start justify-between bg-[#E0E5F6] px-4 max-sm:px-3" style={{ marginTop: "var(--spacing-unit)" }}>
 			<div className="inline-flex items-center space-x-3" style={{ height: "var(--spacing-unit)" }}>
-				<span className="text-gray-600 font-serif font-bold text-[30px] max-sm:text-lg whitespace-nowrap">In a hurry?</span>
+				<span className="text-gray-600 font-serif font-bold text-[26px] xl:text-[30px] max-sm:text-lg whitespace-nowrap">In a hurry?</span>
 				<span className="text-gray-600 font-sans font-normal text-lg max-sm:text-sm whitespace-nowrap max-2xs:truncate max-2xs:max-w-[64%]">Leave a voice note/ message on</span>
 			</div>
 
-			<div className="inline-flex items-center space-x-10 max-sm:space-x-5" style={{ height: "var(--spacing-unit)" }} onMouseLeave={() => setShowContactHoverIndex(null)}>
+			<div className="inline-flex items-center space-x-6 xl:space-x-8 max-sm:space-x-5" style={{ height: "var(--spacing-unit)" }} onMouseLeave={() => setShowContactHoverIndex(null)}>
 				{[
 					{
 						name: "mail",

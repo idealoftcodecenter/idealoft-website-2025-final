@@ -2,6 +2,7 @@ import { EB_Garamond, Oswald } from 'next/font/google';
 import './globals.css';
 import PageHeader from '@/components/global/PageHeader';
 import WebsiteFooter from '@/components/global/WebsiteFooter';
+import Loader from '@/components/global/Loader';
 
 // const workSans = Work_Sans({
 //     variable: '--font-work-sans',
@@ -53,6 +54,7 @@ export default function RootLayout({ children }) {
 				<meta name="theme-color" content="#F3F5FB" />
 			</head>
             <body className="antialiased relative">
+				{/* <Loader /> */}
                 {/* background with noise */}
                 <div className="bg-noise w-full overflow-hidden">
                     {/* background with lines */}

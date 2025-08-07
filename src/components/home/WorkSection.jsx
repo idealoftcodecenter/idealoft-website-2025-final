@@ -36,7 +36,7 @@ export default function WorkSection() {
 	};
 
 	return (
-		<section style={{ marginTop: "calc(var(--spacing-unit) * 2)" }}>
+		<section style={{ marginTop: "calc(var(--spacing-unit) * 2)", marginBottom: "calc(var(--spacing-unit) * 4)" }}>
 			<Heading level={6} className="text-[24px] pl-4 md:pl-6 lg:pl-8 max-xl:text-base text-[#B6BAC7] max-sm:text-lg uppercase font-medium">
 				OUR WORK
 			</Heading>

@@ -9,11 +9,11 @@ export default function Home() {
 	return (
 		<main className="container" style={{height: "4000px"}}>
 			{/* ===================== Banner ===================== */}
-			<Hero />
+			{/* <Hero /> */}
 			<ServicesSection />
 			<ProcessSection />
 			<WorkSection />
-			<ContactSection />
+			{/* <ContactSection /> */}
 		</main>
 	);
 }

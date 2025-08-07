@@ -45,7 +45,9 @@ export default function CustomAudioPlayer({ src }) {
         });
 
         return () => {
-            wavesurferRef.current.destroy();
+			if(waveformRef.current) {
+				wavesurferRef.current.destroy();
+			}
         };
     }, [src]);
 

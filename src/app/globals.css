@@ -40,6 +40,8 @@
 	--container-width: calc(90% - 8px);
 	--card-height-multiplier: 16;
 	--home-work-para-height-multiplier: 4;
+	--services-card-height: calc(var(--spacing-unit) * 10);
+	--services-card-width: calc(var(--services-card-height) * 0.872)
 }
 @media (min-width: 640px) {
 	:root {
@@ -60,12 +62,22 @@
 		--spacing-unit: 2.5rem;
 		--container-width: calc(48rem + 8px);
 		--card-height-multiplier: 13;
+		--services-card-height: calc(var(--spacing-unit) * 7);
+		--services-card-width: calc(var(--services-card-height) * 0.872)
 	}
 }
 @media (min-width: 1280px) {
 	:root {
 		--spacing-unit: 3rem;
 		--container-width: calc(66rem + 8px);
+		--services-card-height: calc(var(--spacing-unit) * 8);
+		--services-card-width: calc(var(--services-card-height) * 0.872)
+	}
+}
+@media (min-width: 1440px) {
+	:root {
+		--services-card-height: calc(var(--spacing-unit) * 10);
+		--services-card-width: calc(var(--services-card-height) * 0.872)
 	}
 }
 @media (min-width: 1536px) {
@@ -426,4 +438,48 @@ body {
 #landing-point-1,
 #landing-point-2 {
 	transform: scale(0);
+}
+
+
+
+
+
+
+/* ===================== Coming soon animation ===================== */
+/* ===================== Coming soon animation ===================== */
+.heading-zoom .letter {
+	display: inline-block;
+	opacity: 0;
+	transform: scale(0.4);
+	animation: zoomIn 10s ease-out infinite;
+}
+
+/* Stagger each letter by index */
+.heading-zoom .letter-0  { animation-delay: 0s; }
+.heading-zoom .letter-1  { animation-delay: 0.05s; }
+.heading-zoom .letter-2  { animation-delay: 0.1s; }
+.heading-zoom .letter-3  { animation-delay: 0.15s; }
+.heading-zoom .letter-4  { animation-delay: 0.2s; }
+.heading-zoom .letter-5  { animation-delay: 0.25s; }
+.heading-zoom .letter-6  { animation-delay: 0.3s; }
+.heading-zoom .letter-7  { animation-delay: 0.35s; }
+.heading-zoom .letter-8  { animation-delay: 0.4s; }
+.heading-zoom .letter-9  { animation-delay: 0.45s; }
+.heading-zoom .letter-10 { animation-delay: 0.5s; }
+.heading-zoom .letter-11 { animation-delay: 0.55s; }
+
+/* Animation keyframe */
+@keyframes zoomIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.4);
+	}
+	7% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
