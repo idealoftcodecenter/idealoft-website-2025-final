@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -25,9 +25,7 @@ export default function Hero() {
 		const animPointWrapper = document.getElementById("anim-points-wrapper");
 		const landingPoint1 = document.getElementById("landing-point-1");
 		const landingPoint2 = document.getElementById("landing-point-2");
-		// maskedBack.style.width = containerWidth;
-		// maskedBack.style.height = containerHeight;
-
+		
 		const tl = gsap.timeline({
 			defaults: { 
 				duration: 10,
@@ -36,10 +34,10 @@ export default function Hero() {
 			scrollTrigger: {
         		trigger: containerRef.current,
 				start: 'top top',
-				end: '+=200%', // or use pixel value like '+=800'
+				end: `+=200%`, // or use pixel value like '+=800'
 				scrub: true,
 				pin: true,
-				// anticipatePin: 1,
+				anticipatePin: 1,
 				// once: true 
 			},
 		});
@@ -91,7 +89,7 @@ export default function Hero() {
 			}),
 			gsap.to(maskedBack, {
 				x: "+=200%",
-				y: "66%",
+				y: "62%",
 				scale: 1.05,
 				rotation: 15,
 				duration: 2,
@@ -128,12 +126,18 @@ export default function Hero() {
 			gsap.to(bgAnimTop, {
 				scale: 0,
 				opacity: 0,
+				scale: 0.2,
+				y: "-=20%",
+
 				duartion: 1,
 				delay: 3,
 			}),
 			gsap.to(bgAnimBottom, {
 				scale: 0,
 				opacity: 0,
+				scale: 0.2,
+				y: "+=20%",
+
 				duartion: 1,
 				delay: 3,
 			})
@@ -143,34 +147,45 @@ export default function Hero() {
 	
 
 	return (
-		<div className='w-full' style={{ height: "calc(var(--spacing-unit) * 18)", paddingTop: "var(--spacing-unit)" }} ref={containerRef}>
-			<div className='relative w-full' style={{ height: "calc(var(--spacing-unit) * 18)" }}>
-				<div className='w-full' id='bg-anim-top' style={{ height: "calc(var(--spacing-unit) * 12)", backgroundImage: "url(/assets/cont/home/hero/db-top.webp)", backgroundSize: "cover", backgroundPosition: "center bottom", backgroundRepeat: "no-repeat" }}></div>
-				<div className='w-full flex bg-white' id='anim-points-wrapper' style={{ height: "calc(var(--spacing-unit) * 8)" }}>
-					<div className="flex-1 flex items-center justify-center">
-						<Image src={"/assets/cont/home/hero/one.webp"} id="landing-point-1" width={1002} height={300} alt='test' className='inline-block' style={{ height: "calc(var(--spacing-unit) * 3)", width: "auto", transform: "scale(0)" }} />
+
+		<div className="landing" ref={containerRef}>
+			<div className="bg-noise w-full h-full overflow-hidden">
+				<div className="book-lines w-full h-full">
+					<div className="container mx-auto h-full">
+						<div className='w-full' style={{ height: "var(--sticker-top-spacer-div-height)" }}></div>
+						<div className='w-full relative' style={{ height: "var(--landing-sticker-total-height)" }}>
+							<div className='relative w-full sticker-soft-shadow' style={{ height: "var(--landing-sticker-total-height)" }}>
+								<div className='w-full' id='bg-anim-top' style={{ height: "var(--bg-anim-top-height)", backgroundImage: "url(/assets/cont/home/hero/db-top.webp)", backgroundSize: "100% auto", backgroundPosition: "center bottom", backgroundRepeat: "no-repeat" }}></div>
+								<div className='w-full flex flex-col lg:flex-row bg-white' id='anim-points-wrapper' style={{ height: "--landing-center-white-div-height" }}>
+									<div className="flex-1 flex items-center justify-center">
+										<Image src={"/assets/cont/home/hero/one.webp"} id="landing-point-1" width={1002} height={300} alt='test' className='inline-block py-[7%] md:py-[5%] lg:py-[19%] xl:py-[14%] 2xl:py-[9%]' style={{ height: "calc(var(--landing-center-white-div-height) - var(--spacing-unit) * 4)", width: "auto", transform: "scale(0)" }} />
+									</div>
+									<div className="flex-1 flex items-center justify-center" id="lading-point-2">
+										<Image src={"/assets/cont/home/hero/two.webp"} id="landing-point-2" width={1002} height={300} alt='test' className='inline-block py-[8%] md:py-[5%] lg:py-[20%] xl:py-[15%] 2xl:py-[10%]' style={{ height: "calc(var(--landing-center-white-div-height) - var(--spacing-unit) * 4)", width: "auto", transform: "scale(0)" }} />
+									</div>
+								</div>
+								<div className='w-full' id="bg-anim-bottom" style={{ height: "var(--bg-anim-bottom-height)", backgroundImage: "url(/assets/cont/home/hero/db-bottom.webp)", backgroundSize: "100% auto", backgroundPosition: "center top", backgroundRepeat: "no-repeat" }}></div>
+							</div>
+							<div className="innerContainer w-full h-full absolute left-0 top-0 z-30">
+								<svg width="0" height="0">
+									<mask id="rect-mask">
+										<rect width="100%" height="100%" fill="black" />
+										<rect id="sticker-front-mask" ref={rectRef} width="100" height="100" fill="white" />
+									</mask>
+								</svg>
+								<div className="masked-front w-full h-full text-white flex justify-center items-center text-[24px]" style={{ WebkitMask: 'url(#rect-mask)', mask: 'url(#rect-mask)', backgroundImage: "url('/assets/cont/home/hero/business-designers-text-2.webp')", backgroundSize: "100%", backgroundPosition: "center center", backgroundRepeat: "no-repeat" }}></div>
+								<div className="absolute left-0 top-0 z-2 overflow-hidden" style={{ WebkitMask: 'url(#rect-mask)', mask: 'url(#rect-mask)', width: "300%", height: "260%" }}>
+									<div className='relative' id="masked-back">
+										<div className='absolute right-0 top-0 z-10' id="back-shadow"></div>
+										<div className='w-full h-full z-20' style={{ backgroundImage: "url(/assets/cont/home/hero/sticker-back.webp)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center center" }}></div>
+										<div className='absolute right-0 top-0 z-40' id="back-gradient"></div>
+										<div className='absolute right-0 top-0 z-10' id="back-shadow"></div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div className="flex-1 flex items-center justify-center" id="lading-point-2">
-						<Image src={"/assets/cont/home/hero/two.webp"} id="landing-point-2" width={1002} height={300} alt='test' className='inline-block' style={{ height: "calc(var(--spacing-unit) * 3)", width: "auto", transform: "scale(0)" }} />
-					</div>
-				</div>
-				<div className='w-full' id="bg-anim-bottom" style={{ height: "calc(var(--spacing-unit) * 6)", backgroundImage: "url(/assets/cont/home/hero/db-bottom.webp)", backgroundSize: "cover", backgroundPosition: "center top", backgroundRepeat: "no-repeat" }}></div>
-			</div>
-			<div className="innerContainer w-full h-full absolute left-0 top-0 z-30" style={{ top: "var(--spacing-unit)" }}>
-				<svg width="0" height="0">
-					<mask id="rect-mask">
-						<rect width="100%" height="100%" fill="black" />
-						<rect id="sticker-front-mask" ref={rectRef} width="1800" height="1800" fill="white" />
-					</mask>
-				</svg>
-				<div className="masked-front w-full h-full text-white flex justify-center items-center text-[24px]" style={{ WebkitMask: 'url(#rect-mask)', mask: 'url(#rect-mask)', backgroundImage: "url('/assets/cont/home/hero/business-designers-text-2.webp')", backgroundSize: "100%", backgroundPosition: "center center", backgroundRepeat: "no-repeat" }}></div>
-				<div className="absolute left-0 top-0 z-2 overflow-hidden" style={{ WebkitMask: 'url(#rect-mask)', mask: 'url(#rect-mask)', width: "300%", height: "260%" }}>
-					<div className='relative' id="masked-back">
-						<div className='absolute right-0 top-0 z-10' id="back-shadow"></div>
-						<div className='w-full h-full z-20' style={{ backgroundImage: "url(/assets/cont/home/hero/sticker-back.webp)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center center" }}></div>
-						<div className='absolute right-0 top-0 z-40' id="back-gradient"></div>
-						<div className='absolute right-0 top-0 z-10' id="back-shadow"></div>
-					</div>
+					<div className="container" style={{ height: "calc(var(--spacing-unit) * 8)" }}></div>
 				</div>
 			</div>
 		</div>

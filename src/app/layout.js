@@ -55,16 +55,14 @@ export default function RootLayout({ children }) {
 			</head>
             <body className="antialiased relative">
 				{/* <Loader /> */}
-                {/* background with noise */}
-                <div className="bg-noise w-full overflow-hidden">
-                    {/* background with lines */}
-                    <div className="book-lines w-full">
-                        <section className="container overflow-hidden mx-auto">
-                            <PageHeader />
-                        </section>
-                        {children}
-                    </div>
-                </div>
+				<div className="bg-noise w-full overflow-hidden">
+					<div className="book-lines w-full h-full">
+						<section className="container overflow-hidden mx-auto">
+							<PageHeader />
+						</section>
+					</div>
+				</div>
+                {children}
 				<WebsiteFooter />
             </body>
         </html>

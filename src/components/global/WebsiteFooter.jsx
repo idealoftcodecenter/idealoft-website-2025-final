@@ -8,6 +8,8 @@ export default function Footer() {
   return (
     <footer id="footer" className="relative footer-bg">
 		<div className="footer-container mx-auto border-x border-x-[#717171]">
+			<div className="w-full" style={{ height: "var(--spacing-unit)" }}></div>
+			<div className="w-full border-t border-t-[#717171]" style={{ height: "var(--spacing-unit)" }}></div>
 			<div className="w-full h-auto relative">
 				<div className="w-full h-auto">
 					<div>

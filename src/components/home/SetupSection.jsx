@@ -209,8 +209,8 @@ const SetupSection = ({blur}) => {
 			{/* =================================================== CARD-2 */}
 			<div data-index="2" className="absolute left-0 top-0 inset-0 bg-white rotatable-cards flex items-center justify-center overflow-hidden" style={{ zIndex: 3 }}>
 				<img src="/assets/cont/home/services/arrow.webp" width={60} height={60} className="hover-arrow absolute top-1/2 left-1/2 w-[48px] h-[48px] -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 pointer-events-none z-50" alt="arrow" style={{filter: "drop-shadow(0 4px 4px rgba(0,0,0,0.2))"}} />
-				<img src="/assets/cont/home/services/setup/cover-flying-lego.webp" width={175} height={200} className="inline-block w-[175px] h-[200px] lg:w-[380px] lg:h-[393px] absolute left-0 bottom-[-34%] translate-x-[-20%] z-10" alt="" />
-				<img src="/assets/cont/home/services/setup/cover-flying-lego-2.webp" width={175} height={200} className="inline-block w-[158px] h-[170px] lg:w-[319px] lg:h-[328px] absolute right-[-53%] top-[-16%] translate-x-[-20%] z-10" alt="" />
+				<img src="/assets/cont/home/services/setup/cover-flying-lego.webp" width={175} height={200} className="inline-block w-[175px] h-[200px] 2xl:w-[380px] 2xl:h-[393px] absolute left-0 bottom-[-34%] md:bottom-[-20%] lg:bottom-[-26%] lg:left-[10%] lg:scale-125 2xl:left-0 2xl:bottom-[-34%] 2xl:scale-100 translate-x-[-20%] z-10" alt="" />
+				<img src="/assets/cont/home/services/setup/cover-flying-lego-2.webp" width={175} height={200} className="inline-block w-[158px] h-[170px] 2xl:w-[319px] 2xl:h-[328px] absolute right-[-53%] top-[-16%] md:right-[-24%] md:top-[-7%] lg:top-[60%] lg:right-[-35%] 2xl:right-[-53%] 2xl:top-[-16%] translate-x-[-20%] z-10" alt="" />
 				<div className="content w-[280px] lg:w-[320px] h-[320px] lg:h-[360px] flex flex-col border border-[#E0E5F6] relative">
 					<div className="absolute left-0 top-0 border-r border-r-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[-100%] translate-y-[-100%]"></div>
 					<div className="absolute right-0 top-0 border-l border-l-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[100%] translate-y-[-100%]"></div>
@@ -228,7 +228,7 @@ const SetupSection = ({blur}) => {
 			{/* =================================================== CARD-3 (AUDIO CARD) */}
 			<div data-index="3" className="absolute left-0 top-0 inset-0 bg-white rotatable-cards flex items-center justify-center overflow-hidden" style={{ zIndex: 2 }}>
 				<img src="/assets/cont/home/services/arrow.webp" width={60} height={60} className="hover-arrow absolute top-1/2 left-1/2 w-[48px] h-[48px] -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 pointer-events-none z-50" alt="arrow" style={{filter: "drop-shadow(0 4px 4px rgba(0,0,0,0.2))"}} />
-				<img src="/assets/cont/home/services/setup/card-2-lego.webp" width={230} height={252} className="inline-block w-[230] h-[252px] lg:w-[475px] lg:h-[520px] absolute left-[10%] bottom-[-45%] z-10" alt="" />
+				<img src="/assets/cont/home/services/setup/card-2-lego.webp" width={230} height={252} className="inline-block w-[230] h-[252px] lg:w-[475px] lg:h-[520px] absolute left-[10%] bottom-[-45%] md:bottom-[-27%] md:scale-125 lg:left-[-20%] lg:bottom-[-70%] lg:scale-75 2xl:left-[10%] 2xl:bottom-[-45%] 2xl:scale-100 z-10" alt="" />
 				<div className="content w-[280px] lg:w-[320px] h-[320px] lg:h-[360px] flex flex-col border border-[#E0E5F6] relative">
 					<div className="absolute left-0 top-0 border-r border-r-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[-100%] translate-y-[-100%]"></div>
 					<div className="absolute right-0 top-0 border-l border-l-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[100%] translate-y-[-100%]"></div>
@@ -247,7 +247,7 @@ const SetupSection = ({blur}) => {
 			{/* =================================================== CARD-4 (BOTTOM LIST CARD) */}
 			<div data-index="4" className="absolute left-0 top-0 inset-0 bg-white rotatable-cards flex items-center justify-center overflow-hidden" style={{ zIndex: 1 }}>
 				<img src="/assets/cont/home/services/arrow.webp" width={60} height={60} className="hover-arrow absolute top-1/2 left-1/2 w-[48px] h-[48px] -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 pointer-events-none z-50" alt="arrow" style={{filter: "drop-shadow(0 4px 4px rgba(0,0,0,0.2))"}} />
-				<img src="/assets/cont/home/services/setup/card-3-lego.webp" width={175} height={200} className="inline-block w-[175px] h-[200px] lg:w-[350px] lg:h-[450px] absolute right-[-40%] bottom-[-40%] z-10" alt="" />
+				<img src="/assets/cont/home/services/setup/card-3-lego.webp" width={175} height={200} className="inline-block w-[175px] h-[200px] 2xl:w-[350px] 2xl:h-[450px] absolute right-[-40%] bottom-[-40%] md:right-[-20%] md:bottom-[-15%] lg:right-[-20%] 2xl:right-[-40%] 2xl:bottom-[-40%] 2xl:scale-100 z-10" alt="" />
 				<div className="content w-[280px] lg:w-[320px] h-[320px] lg:h-[360px] flex flex-col border border-[#E0E5F6] relative">
 					<div className="absolute left-0 top-0 border-r border-r-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[-100%] translate-y-[-100%]"></div>
 					<div className="absolute right-0 top-0 border-l border-l-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[100%] translate-y-[-100%]"></div>

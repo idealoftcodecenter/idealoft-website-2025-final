@@ -7,13 +7,20 @@ import WorkSection from "@/components/home/WorkSection";
 
 export default function Home() {
 	return (
-		<main className="container" style={{height: "4000px"}}>
-			{/* ===================== Banner ===================== */}
-			<Hero />
-			<ServicesSection />
-			<ProcessSection />
-			<WorkSection />
-			<ContactSection />
-		</main>
+		<>
+			{/* <Hero /> */}
+			<div className="bg-noise w-full">
+				{/* background with lines */}
+				<div className="book-lines w-full">
+					<main className="container mx-auto">
+						{/* ===================== Banner ===================== */}
+						<ServicesSection />
+						<ProcessSection />
+						<WorkSection />
+						<ContactSection />
+					</main>
+				</div>
+			</div>
+		</>
 	);
 }

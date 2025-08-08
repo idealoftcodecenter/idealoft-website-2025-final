@@ -41,7 +41,14 @@ const SetupSection = ({blur}) => {
 				const cardWidth = card.offsetWidth;
 				const clickX = e.clientX - card.getBoundingClientRect().left;
 				
-				const isLeftClick = clickX < cardWidth / 2;
+				let isLeftClick = clickX < cardWidth / 2;
+
+				// ✅ Force overrides
+				if (index === 1) {
+					isLeftClick = false; // always right
+				} else if (index === 4) {
+					isLeftClick = true; // always left
+				}
 				
 				// Animate out
 				if(isLeftClick) {
@@ -116,27 +123,58 @@ const SetupSection = ({blur}) => {
 				const angle = (Math.random() * 16 - 8).toFixed(2);
 				card.style.transition = `transform 0.4s ease ${i * 0.05}s`;
 				card.style.transform = `rotate(${angle}deg)`;
-				if (arrow) arrow.style.opacity = "1";
-			};
 
+				const index = parseInt(card.dataset.index, 10);
+
+				if (arrow) {
+					if (index === 1) {
+						// Show NEXT arrow → pointing right (180deg)
+						arrow.style.transform = "translate(-50%, -50%) rotate(180deg)";
+						arrow.style.opacity = "1";
+					} else if (index === 4) {
+						// Show PREV arrow → pointing left (0deg)
+						arrow.style.transform = "translate(-50%, -50%) rotate(0deg)";
+						arrow.style.opacity = "1";
+					} else {
+						arrow.style.opacity = "0";
+					}
+				}
+			};
+			
 			const handleMouseLeave = () => {
 				card.style.transition = `transform 0.4s ease ${i * 0.05}s`;
 				card.style.transform = "rotate(0deg)";
-				if (arrow) arrow.style.opacity = "0";
+				if (arrow) {
+					arrow.style.opacity = "0";
+				}
 			};
 
 			const handleMouseMove = (e) => {
 				if (!arrow || !card) return;
+
+				const index = parseInt(card.dataset.index, 10);
+
+				// Only show arrow for card 1 and 4
+				if (index !== 1 && index !== 4) {
+					arrow.style.opacity = "0";
+					return;
+				}
+
 				const rect = card.getBoundingClientRect();
-				const midX = rect.left + rect.width / 2;
+				const x = e.clientX - rect.left;
+				const y = e.clientY - rect.top;
 
-				arrow.style.left = `${e.clientX - rect.left}px`;
-				arrow.style.top = `${e.clientY - rect.top}px`;
+				arrow.style.left = `${x}px`;
+				arrow.style.top = `${y}px`;
 
-				if (e.clientX < midX) {
-					arrow.style.transform = "translate(-50%, -50%) rotate(0)";
-				} else {
+				if (index === 1) {
+					// Card 1 → NEXT → rotate right
 					arrow.style.transform = "translate(-50%, -50%) rotate(180deg)";
+					arrow.style.opacity = "1";
+				} else if (index === 4) {
+					// Card 4 → PREV → rotate left
+					arrow.style.transform = "translate(-50%, -50%) rotate(0deg)";
+					arrow.style.opacity = "1";
 				}
 			};
 
@@ -157,8 +195,6 @@ const SetupSection = ({blur}) => {
 		});
 	}, []);
 
-
-
 	return (
 		<div ref={cardsContainerRef} className="relative" style={{ width: 'var(--services-card-width)', height: 'var(--services-card-height)' }}>
 			{blur && <div className={`absolute left-0 top-0 z-50 w-full h-full inset-0 bg-green-400/60 transition-all duration-300 pointer-events-none`}></div>}
@@ -171,7 +207,7 @@ const SetupSection = ({blur}) => {
 			{/* =================================================== CARD-2 */}
 			<div data-index="2" className="absolute left-0 top-0 inset-0 bg-white rotatable-cards flex items-center justify-center overflow-hidden" style={{ zIndex: 3 }}>
 				<img src="/assets/cont/home/services/arrow.webp" width={60} height={60} className="hover-arrow absolute top-1/2 left-1/2 w-[48px] h-[48px] -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 pointer-events-none z-50" alt="arrow" style={{filter: "drop-shadow(0 4px 4px rgba(0,0,0,0.2))"}} />
-				<img src="/assets/cont/home/services/scale/card-1-lego-1.webp" width={175} height={200} className="inline-block w-[175px] h-[200px] lg:w-[380px] lg:h-[393px] absolute left-0 bottom-[-34%] translate-x-[-20%] z-10" alt="" />
+				<img src="/assets/cont/home/services/scale/card-1-lego-1.webp" width={175} height={200} className="inline-block w-[175px] h-[200px] 2xl:w-[380px] 2xl:h-[393px] absolute left-0 bottom-[-34%] md:bottom-[-20%] lg:bottom-[-24%] xl:scale-125 2xl:left-0 2xl:bottom-[-38%] 2xl:scale-100 translate-x-[-20%] z-10" alt="" />
 				<div className="content w-[280px] lg:w-[320px] h-[320px] lg:h-[360px] flex flex-col border border-[#E0E5F6] relative">
 					<div className="absolute left-0 top-0 border-r border-r-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[-100%] translate-y-[-100%]"></div>
 					<div className="absolute right-0 top-0 border-l border-l-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[100%] translate-y-[-100%]"></div>
@@ -189,7 +225,7 @@ const SetupSection = ({blur}) => {
 			{/* =================================================== CARD-3 (AUDIO CARD) */}
 			<div data-index="3" className="absolute left-0 top-0 inset-0 bg-white rotatable-cards flex items-center justify-center overflow-hidden" style={{ zIndex: 2 }}>
 				<img src="/assets/cont/home/services/arrow.webp" width={60} height={60} className="hover-arrow absolute top-1/2 left-1/2 w-[48px] h-[48px] -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 pointer-events-none z-50" alt="arrow" style={{filter: "drop-shadow(0 4px 4px rgba(0,0,0,0.2))"}} />
-				<img src="/assets/cont/home/services/scale/card-2-lego-1.webp" width={241} height={231} className="inline-block w-[241] h-[231px] lg:w-[363px] lg:h-[348px] absolute left-[-14%] bottom-[-30%] z-10" alt="" />
+				<img src="/assets/cont/home/services/scale/card-2-lego-1.webp" width={241} height={231} className="inline-block w-[241] h-[231px] 2xl:w-[363px] 2xl:h-[348px] absolute left-[-14%] bottom-[-30%] md:left-[-5%] md:bottom-[-25%] z-10" alt="" />
 				<div className="content w-[280px] lg:w-[320px] h-[320px] lg:h-[360px] flex flex-col border border-[#E0E5F6] relative">
 					<div className="absolute left-0 top-0 border-r border-r-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[-100%] translate-y-[-100%]"></div>
 					<div className="absolute right-0 top-0 border-l border-l-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[100%] translate-y-[-100%]"></div>
@@ -208,7 +244,7 @@ const SetupSection = ({blur}) => {
 			{/* =================================================== CARD-4 (BOTTOM LIST CARD) */}
 			<div data-index="4" className="absolute left-0 top-0 inset-0 bg-white rotatable-cards flex items-center justify-center overflow-hidden" style={{ zIndex: 1 }}>
 				<img src="/assets/cont/home/services/arrow.webp" width={60} height={60} className="hover-arrow absolute top-1/2 left-1/2 w-[48px] h-[48px] -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 pointer-events-none z-50" alt="arrow" style={{filter: "drop-shadow(0 4px 4px rgba(0,0,0,0.2))"}} />
-				<img src="/assets/cont/home/services/scale/card-3-lego-1.webp" width={160} height={220} className="inline-block w-[160px] h-[220px] lg:w-[240px] lg:h-[332px] absolute right-[-10%] bottom-[-20%] z-10" alt="" />
+				<img src="/assets/cont/home/services/scale/card-3-lego-1.webp" width={160} height={220} className="inline-block w-[160px] h-[220px] 2xl:w-[240px] 2xl:h-[332px] absolute bottom-[-25%] right-[-12%] sm:right-[-10%] sm:bottom-[-20%] lg:right-[-5%] xl:right-0 z-10" alt="" />
 				<div className="content w-[280px] lg:w-[320px] h-[320px] lg:h-[360px] flex flex-col border border-[#E0E5F6] relative">
 					<div className="absolute left-0 top-0 border-r border-r-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[-100%] translate-y-[-100%]"></div>
 					<div className="absolute right-0 top-0 border-l border-l-[#E0E5F6] border-b border-b-[#E0E5F6] w-[100px] h-[100px] translate-x-[100%] translate-y-[-100%]"></div>

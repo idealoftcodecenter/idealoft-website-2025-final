@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactSection = () => {
 	return (
-		<section className="mt-[var(--spacing-unit)] bg-slate-400 h-[var(--spacing-unit)]">
+		<section className="mt-[var(--spacing-unit)]" style={{ height: "calc(var(--spacing-unit) * 3)" }}>
 			{/* <h2>Contact Us</h2>
 			<form>
 				<div>
