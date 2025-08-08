@@ -8,7 +8,7 @@ import WorkSection from "@/components/home/WorkSection";
 export default function Home() {
 	return (
 		<>
-			{/* <Hero /> */}
+			<Hero />
 			<div className="bg-noise w-full">
 				{/* background with lines */}
 				<div className="book-lines w-full">

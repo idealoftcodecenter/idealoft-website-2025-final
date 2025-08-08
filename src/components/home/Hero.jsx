@@ -41,65 +41,57 @@ export default function Hero() {
 				// once: true 
 			},
 		});
-
 		
-		tl
-		.to(rectRef.current, {
-			x: "+=7.2%",
-			duration: 0.2
-		})
-		.to(maskedBack, {
-			x: "+=10%",
-			y: "4%",
-			rotation: 20,
-			scale: 1.03,
-			duration: 0.2,
+		tl.fromTo(rectRef.current,
+			{
+				x: `5%`,
+				skewX: "-25deg"
+			}, {
+				x: `+=5%`,
+				skewX: "0",
+				duration: 1
+			}
+		).fromTo(maskedBack,
+			{
+				x: "-88.6%",
+				y: "9.6%",
+				rotateZ: "48deg",
+				rotateY: "-2deg",
+				scale: 1.05
+			}, {
+				x: "+=15%",
+				y: 0,
+				rotateZ: 0,
+				rotateY: "-2deg",
+				scale: 1.008,
+				duration: 1,
+				onComplete: function() { console.log("Animation 1!"); }
+			}, 
+			"<"
+		).to(backGradient,
+			{
+				width: "14%",
+				duration: 1,
+			}, 
+			"<"
+		);
+		
+		tl.to(rectRef.current,
+			{
+				x: `+=${containerWidth}`,
+				duration: 6.9
+			}
+		).to(maskedBack, {
+			x: "+=273%",
+			scale: 1.05,
+			rotateX: 2,
+			duration: 8,
 			onComplete: () => console.log("Animation 1!")
 		}, "<")
 		.to(backGradient, {
-			width: "10%",
-			opacity: 1,
-			duration: 0.2,
+			width: "144%",
+			duration: 7,
 		}, "<");
-		
-
-		tl.add([
-			gsap.to(rectRef.current, {
-				x: "+=50%",
-				duration: 2,
-			}),
-			gsap.to(maskedBack, {
-				x: "+=100%",
-				y: "23%",
-				scale: 1.05,
-				rotation: 15,
-				duration: 2,
-			}),
-			gsap.to(backGradient, {
-				width: "40%",
-				opacity: 1,
-				duration: 2,
-			}),
-		])
-
-		tl.add([
-			gsap.to(rectRef.current, {
-				x: "+=100%",
-				duration: 2,
-			}),
-			gsap.to(maskedBack, {
-				x: "+=200%",
-				y: "62%",
-				scale: 1.05,
-				rotation: 15,
-				duration: 2,
-			}),
-			gsap.to(backGradient, {
-				left: "-85%",
-				opacity: 0.2,
-				duration: 2,
-			})
-		]);
 
 		tl.add([
 			gsap.from(animPointWrapper, {
@@ -126,19 +118,19 @@ export default function Hero() {
 			gsap.to(bgAnimTop, {
 				scale: 0,
 				opacity: 0,
-				scale: 0.2,
-				y: "-=20%",
+				scale: 0.4,
+				y: "-=30%",
 
-				duartion: 1,
+				duartion: 2,
 				delay: 3,
 			}),
 			gsap.to(bgAnimBottom, {
 				scale: 0,
 				opacity: 0,
-				scale: 0.2,
-				y: "+=20%",
+				scale: 0.4,
+				y: "+=30%",
 
-				duartion: 1,
+				duartion: 2,
 				delay: 3,
 			})
 		]);
@@ -174,12 +166,11 @@ export default function Hero() {
 									</mask>
 								</svg>
 								<div className="masked-front w-full h-full text-white flex justify-center items-center text-[24px]" style={{ WebkitMask: 'url(#rect-mask)', mask: 'url(#rect-mask)', backgroundImage: "url('/assets/cont/home/hero/business-designers-text-2.webp')", backgroundSize: "100%", backgroundPosition: "center center", backgroundRepeat: "no-repeat" }}></div>
-								<div className="absolute left-0 top-0 z-2 overflow-hidden" style={{ WebkitMask: 'url(#rect-mask)', mask: 'url(#rect-mask)', width: "300%", height: "260%" }}>
-									<div className='relative' id="masked-back">
+								<div className="masked-wrapper absolute left-0 top-0 z-2 overflow-hidden" style={{ WebkitMask: 'url(#rect-mask)', mask: 'url(#rect-mask)', width: "300%", height: "260%" }}>
+									<div className='relative overflow-hidden' id="masked-back">
 										<div className='absolute right-0 top-0 z-10' id="back-shadow"></div>
-										<div className='w-full h-full z-20' style={{ backgroundImage: "url(/assets/cont/home/hero/sticker-back.webp)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center center" }}></div>
+										<div className='absolute left-0 top-0 w-full h-full z-30' style={{ backgroundImage: "url(/assets/cont/home/hero/sticker-back.webp)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center center" }}></div>
 										<div className='absolute right-0 top-0 z-40' id="back-gradient"></div>
-										<div className='absolute right-0 top-0 z-10' id="back-shadow"></div>
 									</div>
 								</div>
 							</div>

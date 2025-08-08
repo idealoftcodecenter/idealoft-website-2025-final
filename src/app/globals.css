@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
 @font-face {
 	font-family: 'Atkinson Hyperlegible';
 	src: url('/assets/fonts/Atkinson-Hyperlegible-Regular-102.woff2') format('woff2'),
@@ -38,6 +42,7 @@
 	--ilBgGrey: #F8F8F8;
 	--spacing-unit: 2rem;
 	--container-width: 90%;
+	--actual-container-width: calc(var(--container-width) - 12px);
 
 	--card-height-multiplier: 16;
 	--home-work-para-height-multiplier: 4;
@@ -61,6 +66,7 @@
 	:root {
 		--spacing-unit: 2.5rem;
 		--container-width: 42rem;
+		--actual-container-width: calc(var(--container-width) - 12px);
 		--card-height-multiplier: 14;
 		--home-work-para-height-multiplier: 2;
 
@@ -74,6 +80,7 @@
 	:root {
 		--spacing-unit: 2.5rem;
 		--container-width: 48rem;
+		--actual-container-width: calc(var(--container-width) - 12px);
 		--card-height-multiplier: 13;
 		--services-card-height: calc(var(--spacing-unit) * 9);
 		--services-card-width: calc(var(--services-card-height) * 0.872);
@@ -97,6 +104,7 @@
 	:root {
 		--spacing-unit: 3rem;
 		--container-width: 66rem;
+		--actual-container-width: calc(var(--container-width) - 12px);
 		--services-card-height: calc(var(--spacing-unit) * 8);
 		--services-card-width: calc(var(--services-card-height) * 0.872);
 
@@ -122,6 +130,7 @@
 	:root {
 		--spacing-unit: 3rem;
 		--container-width: 90rem;
+		--actual-container-width: calc(var(--container-width) - 12px);
 
 		--landing-sticker-total-height: calc(var(--spacing-unit) * 18);
 		--landing-center-white-div-height: calc(var(--spacing-unit) * 10);
@@ -134,6 +143,7 @@
 	:root {
 		--spacing-unit: 3rem;
 		--container-width: 96rem;
+		--actual-container-width: calc(var(--container-width) - 12px);
 	}
 }
 
@@ -485,15 +495,20 @@ body {
 	height: 100vh;
 	height: 100lvh;
 	transform-origin: top right;
-	transform: translate(calc(((var(--container-width) + (var(--container-width) / 2))) * -1), 0);
+	/* transform: skew(-25deg, 0); */
+}
+.masked-wrapper{
+	perspective: 1000px;
+	perspective-origin: top right;
+	transform-style: preserve-3d;        /* keep children 3D */
+	-webkit-transform-style: preserve-3d; /* Safari */
 }
 #masked-back {
-	display: none !important;
-	transform-origin: top right;
-	width: var(--container-width);
-	height: calc(var(--spacing-unit) * 18);
-	transform: translate(-89.2%, 3.2%) rotate(25deg) scale(1.076);
-	/* box-shadow: 10px 10px 30px rgba(0,0,0,.3); */
+    transform-origin: top right;
+  	backface-visibility: hidden;
+    width: var(--actual-container-width);
+    height: var(--landing-sticker-total-height);
+    /* transform: translate(-88.6%, 9.6%) rotateZ(48deg) rotateY(-2deg) scale(1.1); */
 }
 .back-image {
 	width: 100%;
@@ -502,19 +517,19 @@ body {
 }
 #back-gradient {
 	height: 100%;
-	width: 5.5%;
+	width: 8%;
 	top: 0;
 	right: 0;
 	/* background: purple; */
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+20,000000+70&0+0,0.9+20,0+70 */
-	background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.9) 20%,rgba(0,0,0,0) 70%);
+	background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 10%,rgba(0,0,0,0) 70%);
 }
 #back-shadow {
 	height: 90%;
 	width: 100%;
 	background: black;
-	filter: blur(20px);
-	opacity: .3;
+	/* filter: blur(20px);
+	opacity: .3; */
 }
 #landing-point-1,
 #landing-point-2 {
