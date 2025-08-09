@@ -41,58 +41,62 @@ export default function Hero() {
 				// once: true 
 			},
 		});
-		
-		tl.fromTo(rectRef.current,
+
+
+		// ===================================================> MASK ANIMATIONS
+		// ===================================================> MASK ANIMATIONS
+		// ===================================================> MASK ANIMATIONS
+		// ===================================================> MASK ANIMATIONS
+		// ===================================================> MASK ANIMATIONS STEP 1
+		tl.to(rectRef.current,
 			{
-				x: `5%`,
-				skewX: "-25deg"
-			}, {
-				x: `+=5%`,
-				skewX: "0",
-				duration: 1
-			}
-		).fromTo(maskedBack,
-			{
-				x: "-88.6%",
-				y: "9.6%",
-				rotateZ: "48deg",
-				rotateY: "-2deg",
-				scale: 1.05
-			}, {
-				x: "+=15%",
+				x: `+=${containerWidth}`,
 				y: 0,
+				skewX: "-5deg",
+				duration: 6
+			}
+		).to(maskedBack,
+			{
+				x: "+=272%",
+				scale: 1,
+				y: "+=25%",
+				rotateX: 1,
 				rotateZ: 0,
-				rotateY: "-2deg",
-				scale: 1.008,
-				duration: 1,
+				scale: .9,
+				duration: 6,
 				onComplete: function() { console.log("Animation 1!"); }
-			}, 
+			},
 			"<"
 		).to(backGradient,
 			{
 				width: "14%",
-				duration: 1,
+				duration: 6,
 			}, 
 			"<"
 		);
 		
-		tl.to(rectRef.current,
-			{
-				x: `+=${containerWidth}`,
-				duration: 6.9
-			}
-		).to(maskedBack, {
-			x: "+=273%",
-			scale: 1.05,
-			rotateX: 2,
-			duration: 8,
-			onComplete: () => console.log("Animation 1!")
-		}, "<")
-		.to(backGradient, {
-			width: "144%",
-			duration: 7,
-		}, "<");
+		// ===================================================> MASK ANIMATIONS STEP 2
+		// tl.to(rectRef.current,
+		// 	{
+		// 		x: `+=${containerWidth}`,
+		// 		duration: 2.9
+		// 	}
+		// ).to(maskedBack, {
+		// 	x: "+=273%",
+		// 	scale: 1,
+		// 	rotateX: 2,
+		// 	duration: 3,
+		// 	onComplete: () => console.log("Animation 1!")
+		// }, "<")
+		// .to(backGradient, {
+		// 	width: "144%",
+		// 	duration: 3,
+		// }, "<");
 
+		// ===================================================> OTHER ANIMATIONS
+		// ===================================================> OTHER ANIMATIONS
+		// ===================================================> OTHER ANIMATIONS
+		// ===================================================> OTHER ANIMATIONS
 		tl.add([
 			gsap.from(animPointWrapper, {
 				height: 0,
@@ -167,7 +171,7 @@ export default function Hero() {
 								</svg>
 								<div className="masked-front w-full h-full text-white flex justify-center items-center text-[24px]" style={{ WebkitMask: 'url(#rect-mask)', mask: 'url(#rect-mask)', backgroundImage: "url('/assets/cont/home/hero/business-designers-text-2.webp')", backgroundSize: "100%", backgroundPosition: "center center", backgroundRepeat: "no-repeat" }}></div>
 								<div className="masked-wrapper absolute left-0 top-0 z-2 overflow-hidden" style={{ WebkitMask: 'url(#rect-mask)', mask: 'url(#rect-mask)', width: "300%", height: "260%" }}>
-									<div className='relative overflow-hidden' id="masked-back">
+									<div className='overflow-hidden' id="masked-back">
 										<div className='absolute right-0 top-0 z-10' id="back-shadow"></div>
 										<div className='absolute left-0 top-0 w-full h-full z-30' style={{ backgroundImage: "url(/assets/cont/home/hero/sticker-back.webp)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center center" }}></div>
 										<div className='absolute right-0 top-0 z-40' id="back-gradient"></div>
@@ -183,5 +187,3 @@ export default function Hero() {
 	);
 
 }
-
-

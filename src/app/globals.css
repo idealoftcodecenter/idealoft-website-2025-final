@@ -55,6 +55,9 @@
 	--bg-anim-bottom-height: calc(var(--spacing-unit) * 6);
 	--sticker-top-spacer-div-height: calc(var(--spacing-unit) * 1);
 
+	--back-masked-top: ; 
+	--back-masked-left: ;
+
 }
 @media (min-width: 640px) {
 	:root {
@@ -491,13 +494,15 @@ body {
 	box-shadow: 0 1px 2px 1px rgba(0,0,0,.1), inset 0 1px 2px 1px rgba(255,255,255,1);
 }
 #sticker-front-mask {
-	width: 100vw;
+	transform-box: fill-box;   /* <- important for SVG */
+  	transform-origin: top right;
+	width: 150vw;
 	height: 100vh;
 	height: 100lvh;
 	transform-origin: top right;
-	/* transform: skew(-25deg, 0); */
+	transform: translate(4%, 0) skew(-25deg, 0);
 }
-.masked-wrapper{
+.masked-wrapper {
 	perspective: 1000px;
 	perspective-origin: top right;
 	transform-style: preserve-3d;        /* keep children 3D */
@@ -508,7 +513,22 @@ body {
   	backface-visibility: hidden;
     width: var(--actual-container-width);
     height: var(--landing-sticker-total-height);
-    /* transform: translate(-88.6%, 9.6%) rotateZ(48deg) rotateY(-2deg) scale(1.1); */
+	position: absolute;
+	left: calc(var(--actual-container-width) * -1);
+	top: 0;
+	transform: translate(calc(var(--landing-sticker-total-height) * .07), 10%) rotateZ(45deg) rotateY(-2deg) scale(1.3);
+	/* transform: translate(calc(var(--actual-container-width) * .13), 10%) rotateZ(45deg) rotateY(-2deg) scale(1.1); */
+    /* transform: translate(, 7%) rotateZ(40deg) rotateY(-2deg) scale(1.1); */
+}
+@media (min-width: 768px) {
+	#masked-back {
+		transform: translate(calc(var(--actual-container-width) * .11), calc(var(--landing-sticker-total-height) * .022)) rotateZ(45deg) rotateY(-2deg) scale(1.3);
+	}
+}
+@media (min-width: 1024px) {
+	#masked-back {
+		transform: translate(calc(var(--actual-container-width) * .13), calc(var(--landing-sticker-total-height) * .042)) rotateZ(45deg) rotateY(-2deg) scale(1.3);
+	}
 }
 .back-image {
 	width: 100%;
@@ -517,7 +537,7 @@ body {
 }
 #back-gradient {
 	height: 100%;
-	width: 8%;
+	width: 5%;
 	top: 0;
 	right: 0;
 	/* background: purple; */
