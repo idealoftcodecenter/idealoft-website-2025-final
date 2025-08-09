@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
 				<meta name="theme-color" content="#F3F5FB" />
 			</head>
             <body className="antialiased relative">
-				{/* <Loader /> */}
+				<Loader />
 				<div className="bg-noise w-full overflow-hidden">
 					<div className="book-lines w-full h-full">
 						<section className="container overflow-hidden mx-auto">
