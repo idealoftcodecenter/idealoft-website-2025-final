@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavOverlay from './NavOverlay';
 import NavLink from './NavLink';
 import Image from 'next/image';
@@ -12,13 +12,21 @@ import DarkBackdrop from '@/components/global/DarkBackdrop';
 const PageHeader = () => {
     const pathName = usePathname();
 	const [isContactFormOpen, setContactFormOpen] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
 	
+	useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 200);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <>
             <nav className="w-full flex md:justify-end items-center nav-list relative">
-                <Link href="/" className="md:absolute lg:fixed left-0 top-0 w-unit-2 h-unit-2 z-10 bg-white">
-                    <Image src="/assets/cont/Idealoft-logo.svg" alt="Idealoft Studio Logo" width={100} height={100} className="w-full h-full" />
+                <Link href="/" className={`md:absolute lg:fixed left-0 top-0 w-unit-2 h-unit-2 z-10 bg-white transition-all duration-300 ease-out ${scrolled ? "w-unit-1 h-unit-1 hover:scale-[2]" : "w-unit-2 h-unit-2"} origin-top-left`}>
+                    <Image src="/assets/cont/Idealoft-logo.svg" alt="Idealoft Studio Logo" width={100} height={100} className="w-full h-full transition-all duration-300 ease-out" />
                 </Link>
                 <ul className="hidden relative md:flex flex-wrap mt-[var(--spacing-unit)] h-[var(--spacing-unit)]">
                     <li className={`relative z-10 h-full ${pathName === "/our-clients" ? "active" : ""}`}>

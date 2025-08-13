@@ -13,9 +13,14 @@ import 'swiper/css';
 
 export default function ProcessSection() {
 	const contentRefs = useRef([]);
-	const [activeIndex, setActiveIndex] = useState(null);
+	const tabRefs = useRef([]);
+	const scrollTabIntoView = (i) => {
+		const el = tabRefs.current[i];
+		if (!el) return;
+		el.scrollIntoView({ behavior: "smooth", block: "start" }); // works with scroll-mt
+	};
 
-	const [hoveredCard, setHoveredCard] = useState(null);
+	const [activeIndex, setActiveIndex] = useState(null);
 
 
 	useEffect(() => {
@@ -56,7 +61,35 @@ export default function ProcessSection() {
 						}
 
 					return (
-						<div key={`process_${index}`} onClick={() => { if (activeIndex === index) { setActiveIndex(null); return; } setActiveIndex(index); }} className={`w-full flex flex-col  h-auto`}>
+						<div
+							key={`process_${index}`}
+							ref={(el) => (tabRefs.current[index] = el)}
+							className="w-full flex flex-col h-auto scroll-mt-[50px]"
+							onClick={() => {
+								const prev = activeIndex;
+								const next = prev === index ? null : index;
+
+								setActiveIndex(next);
+
+								// If another tab is open and will collapse, wait for its transition end
+								if (prev !== null && prev !== index) {
+									const prevContent = contentRefs.current[prev];
+									if (prevContent) {
+										const onEnd = (ev) => {
+											if (ev.propertyName !== "max-height") return; // only react to our height transition
+											prevContent.removeEventListener("transitionend", onEnd);
+											// Layout is stable now; scroll on the next frame
+											requestAnimationFrame(() => scrollTabIntoView(index));
+										};
+										prevContent.addEventListener("transitionend", onEnd, { once: true });
+										return; // stop here; we'll scroll after collapse
+									}
+								}
+
+								// No previous open panel — or we couldn't find it. Just scroll next frame.
+								requestAnimationFrame(() => scrollTabIntoView(index));
+							}}
+						>
 
 							{/* =================================================== ACCORDION HANDLES */}
 							<div className={`flex w-full justify-end items-end border-b-2 border-b-[#DCDFEB] cursor-pointer tab-bar-shadow`} style={{height: "calc(var(--spacing-unit))"}}>
@@ -69,7 +102,7 @@ export default function ProcessSection() {
 							</div>
 
 							{/* =================================================== ACCORDION DATA */}
-							<div ref={(el) => (contentRefs.current[index] = el)} className="overflow-hidden w-full bg-ilBgGrey sm:px-3 md:px-7" style={{ maxHeight: "0px", transition: "max-height 0.3s ease", height: "calc(var(--spacing-unit) * var(--card-height-multiplier))" }}>
+							<div ref={(el) => (contentRefs.current[index] = el)} className="overflow-hidden w-full bg-ilBgGrey sm:px-3 md:px-7" style={{ maxHeight: "0px", transition: "max-height 0.3s ease" }}>
 								<div className="inline-flex w-full items-center py-6 border-b border-b-gray-200 border-dashed">
 									<h4 className="uppercase text-gray-800 text-2xl max-sm:text-xl font-medium font-display">
 										{item?.heading}
@@ -79,10 +112,9 @@ export default function ProcessSection() {
 								<div className="hidden sm:flex flex-row justify-between gap-10 px-3" style={{paddingTop: "var(--spacing-unit)"}}>
 									{
 										item?.data?.map((card, cardIndex) => {
-											const isBlurred = hoveredCard !== null && hoveredCard !== cardIndex;
 											return (
-												<div key={`card_index_${cardIndex}`} style={{ height: "calc(var(--spacing-unit) * 13)" }} className={`w-1/3 transition-all duration-300 ${ isBlurred ? "blur-sm opacity-50" : "" }`} onMouseEnter={() => setHoveredCard(cardIndex)} onMouseLeave={() => setHoveredCard(null)} >
-													<div className="relative w-full flex justify-center">
+												<div key={`card_index_${cardIndex}`} style={{ height: "calc(var(--spacing-unit) * 13)" }} className={`w-1/3 transition-all duration-300`}>
+													<div className="relative w-full flex justify-center" style={{height: "calc(var(--spacing-unit) * 5)"}}>
 														<Image src={card?.image} width={327} height={210} alt={card?.content} />
 														{
 															card?.mockup && (
@@ -92,7 +124,7 @@ export default function ProcessSection() {
 														)}
 													</div>
 													<div className="text-black font-sans text-lg space-y-5 mt-10 px-3 max-w-[300px] mx-auto">
-														<p className="font-extrabold leading-normal italic">{parse(`${card?.highlight}`)}</p>
+														<p className="font-extrabold leading-tight italic">{parse(`${card?.highlight}`)}</p>
 														<p className="font-normal leading-normal">{parse(`${card?.content}`)}</p>
 													</div>
 												</div>
@@ -103,7 +135,7 @@ export default function ProcessSection() {
 
 								{/* Mobile view: Swiper carousel */}
 								<div className="sm:hidden w-full px-3 py-5">
-									<Swiper spaceBetween={20} slidesPerView={1.1} centeredSlides={false} onSlideChange={() => setHoveredCard(null)} >
+									<Swiper spaceBetween={20} slidesPerView={1.1} centeredSlides={false}>
 										{item?.data?.map((card, cardIndex) => (
 											<SwiperSlide key={`card_index_${cardIndex}`}>
 												<div className="w-full transition-all duration-300" style={{ height: "calc(var(--spacing-unit) * 14)" }}>

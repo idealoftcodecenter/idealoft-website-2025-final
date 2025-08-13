@@ -75,24 +75,6 @@ export default function Hero() {
 			"<"
 		);
 		
-		// ===================================================> MASK ANIMATIONS STEP 2
-		// tl.to(rectRef.current,
-		// 	{
-		// 		x: `+=${containerWidth}`,
-		// 		duration: 2.9
-		// 	}
-		// ).to(maskedBack, {
-		// 	x: "+=273%",
-		// 	scale: 1,
-		// 	rotateX: 2,
-		// 	duration: 3,
-		// 	onComplete: () => console.log("Animation 1!")
-		// }, "<")
-		// .to(backGradient, {
-		// 	width: "144%",
-		// 	duration: 3,
-		// }, "<");
-
 		// ===================================================> OTHER ANIMATIONS
 		// ===================================================> OTHER ANIMATIONS
 		// ===================================================> OTHER ANIMATIONS
@@ -154,10 +136,10 @@ export default function Hero() {
 								<div className='w-full' id='bg-anim-top' style={{ height: "var(--bg-anim-top-height)", backgroundImage: "url(/assets/cont/home/hero/db-top.webp)", backgroundSize: "100% auto", backgroundPosition: "center bottom", backgroundRepeat: "no-repeat" }}></div>
 								<div className='w-full flex flex-col lg:flex-row bg-white' id='anim-points-wrapper' style={{ height: "--landing-center-white-div-height" }}>
 									<div className="flex-1 flex items-center justify-center">
-										<Image src={"/assets/cont/home/hero/one.webp"} id="landing-point-1" width={1002} height={300} alt='test' className='inline-block py-[7%] md:py-[5%] lg:py-[19%] xl:py-[14%] 2xl:py-[9%]' style={{ height: "calc(var(--landing-center-white-div-height) - var(--spacing-unit) * 4)", width: "auto", transform: "scale(0)" }} />
+										<Image src={"/assets/cont/home/hero/one.webp"} id="landing-point-1" width={1002} height={300} alt='test' className='inline-block' style={{ paddingTop: "calc(var(--landing-center-white-div-height) * .14)", paddingBottom: "calc(var(--landing-center-white-div-height) * .14)", height: "calc(var(--landing-center-white-div-height) - var(--spacing-unit) * 4)", width: "auto", transform: "scale(0)" }} />
 									</div>
 									<div className="flex-1 flex items-center justify-center" id="lading-point-2">
-										<Image src={"/assets/cont/home/hero/two.webp"} id="landing-point-2" width={1002} height={300} alt='test' className='inline-block py-[8%] md:py-[5%] lg:py-[20%] xl:py-[15%] 2xl:py-[10%]' style={{ height: "calc(var(--landing-center-white-div-height) - var(--spacing-unit) * 4)", width: "auto", transform: "scale(0)" }} />
+										<Image src={"/assets/cont/home/hero/two.webp"} id="landing-point-2" width={1002} height={300} alt='test' className='inline-block' style={{ paddingTop: "calc(var(--landing-center-white-div-height) * .14)", paddingBottom: "calc(var(--landing-center-white-div-height) * .14)", height: "calc(var(--landing-center-white-div-height) - var(--spacing-unit) * 4)", width: "auto", transform: "scale(0)" }} />
 									</div>
 								</div>
 								<div className='w-full' id="bg-anim-bottom" style={{ height: "var(--bg-anim-bottom-height)", backgroundImage: "url(/assets/cont/home/hero/db-bottom.webp)", backgroundSize: "100% auto", backgroundPosition: "center top", backgroundRepeat: "no-repeat" }}></div>

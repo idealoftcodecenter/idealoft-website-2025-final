@@ -4,7 +4,7 @@ import AnimatedLogo from "../global/AnimatedLogo";
 export default function Overview() {
 	return (
 		<section className={`relative w-full flex flex-col xl:flex-row items-center justify-around overflow-hidden company-experience-overview`}>
-			<div className="px-6 lg:px-0">
+			<div className="px-6 lg:px-0 -mt-20">
 				<AnimatedLogo />
 				<Heading level={6} className="text-[20px] max-xl:text-base text-gray-200 max-sm:text-lg uppercase font-medium">IDEALOFT IN A FLASH</Heading>
 				<Heading level={1} className="text-[28px] text-[#537AFF] max-sm:text-lg max-xl:text-[20px] font-display font-bold leading-9 max-xl:leading-7 max-sm:leading-7" style={{ fontSize: "calc(var(--spacing-unit) * .7)", lineHeight: "var(--spacing-unit)" }}>

@@ -51,8 +51,8 @@ export default function QuickContact() {
 								id="social-detail"
 								className={`absolute top-[-2.75rem] right-0 ${item.name === "instagram" ? "instagram-gradient" : item.bgColor} inline-flex items-center justify-center h-10 space-x-3 font-display font-normal text-[22px] text-white px-3 py-0 mt-[-3.5%] w-auto`}
 								initial={{ scale: 0.8, y: 10, opacity: 0 }}
-								animate={ showContactHoverIndex === index ? { scale: 1, y: [0, -5], opacity: 1 } : { scale: 0.8, y: 10, opacity: 0 } }
-								transition={{ type: "spring", stiffness: 300, damping: 10, duration: 0.6, }}
+								animate={ showContactHoverIndex === index ? { scale: 1, y: [0, -5], opacity: 1 } : { scale: 0.95, y: 10, opacity: 0 } }
+								transition={{ type: "spring", stiffness: 300, damping: 10, duration: 0.3, }}
 							>
 								<span className="whitespace-nowrap">{item?.label}</span>
 								{ ArrowUpRight }

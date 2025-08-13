@@ -17,8 +17,8 @@ export default function Footer() {
 					</div>
 				</div>
 				<div className="w-full block xl:flex gap-0">
-					<div className="flex-1 flex p-12 justify-start items-start border-r border-r-[#717171]">
-						<div className="w-[60px] h-[60px] px-3 py-1">
+					<div className="flex-1 flex p-10 justify-start items-start border-r border-r-[#717171]">
+						<div className="w-[60px] h-[60px] px-2 py-1">
 							<svg width="34" height="19" viewBox="0 0 34 19" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
 								<path d="M20.5738 0H0V2.78571H20.5738V0Z" fill="#537AFF"/>
 								<path d="M20.5738 2.78325L0 2.62085L3.11231 3.67017H23.1987L20.5738 2.78325Z" fill="#D8FF69"/>
@@ -33,15 +33,15 @@ export default function Footer() {
 							</svg>
 						</div>
 						<div>
-							<p className=" text-white font-sans">Find us at 83A, Empire Building, DN <br />Road, Fort, Mumbai, India 40001</p>
-							<p className="mt-12 flex justify-start items-end">
-								<Link href="https://in.linkedin.com/company/idealoftstudio" passHref={true} target="_blank" className="mr-8 cursor-pointer">
+							<p className=" text-white font-sans leading-[1.4em]">Find us at 83A, Empire Building, DN <br />Road, Fort, Mumbai, India 40001</p>
+							<p className="mt-12 flex justify-start items-end leading-[1.4em]">
+								<Link href="https://in.linkedin.com/company/idealoftstudio" passHref={true} target="_blank" className="mr-8 cursor-pointer leading-[1.4em]">
 									<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[20px] h-[20px]">
 										<path d="M2.04213 4.08427C3.16997 4.08427 4.08427 3.16997 4.08427 2.04213C4.08427 0.914294 3.16997 0 2.04213 0C0.914294 0 0 0.914294 0 2.04213C0 3.16997 0.914294 4.08427 2.04213 4.08427Z" fill="#FEE5E5"/>
 										<path d="M6.01183 5.63156V16.9613H9.52956V11.3585C9.52956 9.8801 9.8077 8.44836 11.6408 8.44836C13.4486 8.44836 13.471 10.1386 13.471 11.4518V16.9622H16.9906V10.749C16.9906 7.69703 16.3336 5.35156 12.7664 5.35156C11.0537 5.35156 9.9057 6.29143 9.43623 7.1809H9.38863V5.63156H6.01183ZM0.279297 5.63156H3.80263V16.9613H0.279297V5.63156Z" fill="#FEE5E5"/>
 									</svg>
 								</Link>
-								<Link href="https://www.instagram.com/idealoftstudio/" passHref={true} target="_blank">
+								<Link href="https://www.instagram.com/idealoftstudio/" passHref={true} target="_blank" className="leading-[1.4em]">
 									<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[20px] h-[20px]">
 										<path d="M4.73534 0C2.12409 0 0 2.12606 0 4.73799V11.5047C0 14.1159 2.12606 16.24 4.73799 16.24H11.5047C14.1159 16.24 16.24 14.1139 16.24 11.502V4.73534C16.24 2.12409 14.1139 0 11.502 0H4.73534ZM12.8567 2.70667C13.2302 2.70667 13.5333 3.00981 13.5333 3.38333C13.5333 3.75685 13.2302 4.06 12.8567 4.06C12.4831 4.06 12.18 3.75685 12.18 3.38333C12.18 3.00981 12.4831 2.70667 12.8567 2.70667ZM8.12 4.06C10.3591 4.06 12.18 5.88091 12.18 8.12C12.18 10.3591 10.3591 12.18 8.12 12.18C5.88091 12.18 4.06 10.3591 4.06 8.12C4.06 5.88091 5.88091 4.06 8.12 4.06ZM8.12 5.41333C7.40215 5.41333 6.7137 5.6985 6.2061 6.2061C5.6985 6.7137 5.41333 7.40215 5.41333 8.12C5.41333 8.83785 5.6985 9.5263 6.2061 10.0339C6.7137 10.5415 7.40215 10.8267 8.12 10.8267C8.83785 10.8267 9.5263 10.5415 10.0339 10.0339C10.5415 9.5263 10.8267 8.83785 10.8267 8.12C10.8267 7.40215 10.5415 6.7137 10.0339 6.2061C9.5263 5.6985 8.83785 5.41333 8.12 5.41333Z" fill="#FEE5E5"/>
 									</svg>
@@ -49,8 +49,8 @@ export default function Footer() {
 							</p>
 						</div>
 					</div>
-					<div className="flex-1 flex p-12 justify-start items-start  border-r border-r-[#717171]">
-						<div className="w-[60px] h-[60px] px-3 py-1">
+					<div className="flex-1 flex p-10 justify-start items-start  border-r border-r-[#717171]">
+						<div className="w-[60px] h-[60px] px-2 py-1">
 							<svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
 								<g clipPath="url(#clip0_8149_3230)">
 								<path d="M10.7139 14.0041L2.33739 22.3658L2.06209 9.32659L10.5766 0.748833L10.7139 14.0041Z" fill="#2966EE"/>
@@ -99,12 +99,12 @@ export default function Footer() {
 							</svg>
 						</div>
 						<div>
-							<p className=" text-white font-sans">We can be <span className="font-bold">your Extended <br />Design Partners.</span> Email us.</p>
-							<Link href="mailto:nishi@idealoftstudio.com" passHref={true} className="block text-[20px] mt-12 text-white font-sans font-bold underline">nishi@idealoftstudio.com</Link>
+							<p className=" text-white font-sans leading-[1.4em]">We can be <span className="font-bold leading-[1.4em]">your Extended <br />Design Partners.</span><br />Email us.</p>
+							<Link href="mailto:nishi@idealoftstudio.com" passHref={true} className="block text-[20px] mt-12 text-white font-sans font-bold underline leading-[1.4em]">nishi@idealoftstudio.com</Link>
 						</div>
 					</div>
-					<div className="flex-1 flex p-12 justify-start items-start">
-						<div className="w-[60px] h-[60px] px-3 py-1">
+					<div className="flex-1 flex p-10 justify-start items-start">
+						<div className="w-[60px] h-[60px] px-2 py-1">
 							<svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
 								<path d="M8.76169 24.9593C13.0386 24.9593 16.5058 24.4708 16.5058 23.8683C16.5058 23.2658 13.0386 22.7773 8.76169 22.7773C4.48474 22.7773 1.01758 23.2658 1.01758 23.8683C1.01758 24.4708 4.48474 24.9593 8.76169 24.9593Z" fill="#DE90A5"/>
 								<path d="M12.9368 24.7916C18.867 24.7916 23.6744 19.9842 23.6744 14.054C23.6744 8.12378 18.867 3.31641 12.9368 3.31641C7.0066 3.31641 2.19922 8.12378 2.19922 14.054C2.19922 19.9842 7.0066 24.7916 12.9368 24.7916Z" fill="#C3FF69"/>
@@ -114,8 +114,8 @@ export default function Footer() {
 							</svg>
 						</div>
 						<div>
-							<p className=" text-white font-sans">Looking for <span className="font-bold">well-designed corporate <br />gifts?</span> Shop Merchster.</p>
-							<Link href="https://merchster.com" passHref={true} target="_blank" className="block text-[18px] mt-12 text-white font-sans font-bold underline uppercase">Shop Now</Link>
+							<p className=" text-white font-sans leading-[1.4em]">Looking for <span className="font-bold leading-[1.4em]">well-designed corporate <br />gifts?</span> Shop Merchster.</p>
+							<Link href="https://merchster.com" passHref={true} target="_blank" className="block text-[18px] mt-12 text-white font-sans font-bold underline uppercase leading-[1.4em]">Shop Now</Link>
 						</div>
 					</div>
 				</div>

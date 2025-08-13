@@ -50,9 +50,12 @@ const DesktopView = () => {
 			{workFAQDataNotExpanded?.map((item, index) => {
 				return (
 					<div key={`faq_${index}`}>
-						<div className={`w-full card-grey-gradient flex items-start text-gray-600 px-10 space-x-16 border-b-2 border-b-gray-100`} style={{ paddingTop: "var(--spacing-unit)", paddingBottom: "calc(var(--spacing-unit) - 2px)" }}>
+						<div className={`w-full card-grey-gradient flex items-start text-gray-600 px-10 space-x-16 border-b-2 border-b-gray-100 relative`} style={{ paddingTop: "var(--spacing-unit)", paddingBottom: "calc(var(--spacing-unit) - 2px)" }}>
 							<Heading level={5} fontSerif={true} className="font-bold text-3xl w-2/5">{item?.question}</Heading>
-							<p className="text-lg font-normal w-3/5" style={{ lineHeight: "var(--spacing-unit)", fontSize: "calc(var(--spacing-unit) * .36)", transform: "translate(0, calc(var(--spacing-unit) * .32))" }}>{item?.answer}</p>
+							<div className="text-lg font-normal w-3/5 relative" style={{ lineHeight: "var(--spacing-unit)", fontSize: "calc(var(--spacing-unit) * .36)", transform: "translate(0, calc(var(--spacing-unit) * .32))" }}>
+								<span className="opacity-0">{item?.answer}</span>
+								<p className="text-lg absolute left-0 top-0 leading-tight font-normal">{item?.answer}</p>
+							</div>
 						</div>
 					</div>
 				);

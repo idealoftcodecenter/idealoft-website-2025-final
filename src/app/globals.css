@@ -25,6 +25,8 @@
 }
 
 @layer base {
+	html { color-scheme: light; }
+	body { @apply bg-white; color: #25262C; }
 	.font-serif {
 		font-family: var(--font-eb-garamond), serif;
 	}
@@ -49,10 +51,10 @@
 	--services-card-height: calc(var(--spacing-unit) * 10);
 	--services-card-width: calc(var(--services-card-height) * 0.872);
 
-	--landing-sticker-total-height: calc(var(--spacing-unit) * 16);
+	--landing-sticker-total-height: calc(var(--spacing-unit) * 14);
 	--landing-center-white-div-height: calc(var(--spacing-unit) * 8);
-	--bg-anim-top-height: calc(var(--spacing-unit) * 10);
-	--bg-anim-bottom-height: calc(var(--spacing-unit) * 6);
+	--bg-anim-top-height: calc(var(--spacing-unit) * 9);
+	--bg-anim-bottom-height: calc(var(--spacing-unit) * 5);
 	--sticker-top-spacer-div-height: calc(var(--spacing-unit) * 1);
 
 	--back-masked-top: ; 
@@ -74,7 +76,7 @@
 		--home-work-para-height-multiplier: 2;
 
 		--landing-sticker-total-height: calc(var(--spacing-unit) * 15);
-		--landing-center-white-div-height: calc(var(--spacing-unit) * 8);
+		--landing-center-white-div-height: calc(var(--spacing-unit) * 10);
 		--bg-anim-top-height: calc(var(--spacing-unit) * 10);
 		--bg-anim-bottom-height: calc(var(--spacing-unit) * 5);
 	}
@@ -129,6 +131,21 @@
 		--bg-anim-bottom-height: calc(var(--spacing-unit) * 6);
 	}
 }
+@media (min-width: 1200px) and (max-width: 1500px) and (max-height: 1000px) {
+	:root {
+		--spacing-unit: 2.5rem;
+		--container-width: 62rem;
+		--actual-container-width: calc(var(--container-width) - 12px);
+		--services-card-height: calc(var(--spacing-unit) * 9);
+		--services-card-width: calc(var(--services-card-height) * 0.872);
+
+		--landing-sticker-total-height: calc(var(--spacing-unit) * 13);
+		--landing-center-white-div-height: calc(var(--spacing-unit) * 9);
+		--bg-anim-top-height: calc(var(--spacing-unit) * 9);
+		--bg-anim-bottom-height: calc(var(--spacing-unit) * 4);
+		--sticker-top-spacer-div-height: var(--spacing-unit);
+	}
+}
 @media (min-width: 1536px) {
 	:root {
 		--spacing-unit: 3rem;
@@ -152,14 +169,23 @@
 
 html, body {
 	font-family: 'Atkinson Hyperlegible', sans-serif;
-	color: #25262C;
 	overflow-x: hidden;
+}
+body {
+	background: var(--background);
+	color: var(--foreground);
 }
 .w-unit-2 {
 	width: calc(var(--spacing-unit) * 2);
 }
 .h-unit-2 {
 	height: calc(var(--spacing-unit) * 2);
+}
+.w-unit-1 {
+	width: var(--spacing-unit);
+}
+.h-unit-1 {
+	height: var(--spacing-unit);
 }
 
 /* ========== COLORS */
@@ -198,30 +224,14 @@ html, body {
 @media (min-width: 640px) {
 }
 @media (min-width: 768px) {
-	.container {
-		margin: 0 auto;
-	}
 }
 @media (min-width: 1024px) {
-	.container {
-		margin: 0 auto;
-	}
 }
 @media (min-width: 1280px) {
-	.container {
-		margin: 0 auto;
-	}
 }
 @media (min-width: 1536px) {
-	.container {
-		margin: 0 auto;
-	}
 }
 @media (min-width: 1800px) {
-	.container {
-		margin: 0 auto;
-		margin: 0 auto;
-	}
 }
 
 @theme inline {
@@ -231,12 +241,12 @@ html, body {
 	--font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: light) {
 	:root {
 		--background: #0a0a0a;
 		--foreground: #ededed;
 	}
-}
+} */
 
 body {
 	background: var(--background);
@@ -340,7 +350,7 @@ body {
 /* ===================== Company Overview container styles ===================== */
 /* ===================== Company Overview container styles ===================== */
 .company-experience-overview {
-	height: calc(var(--spacing-unit) * 22);
+	height: calc(var(--spacing-unit) * 10);
 	background: #fff url('/assets/bg/world-map.webp') center bottom no-repeat fixed;
 }
 @media (min-width: 768px) {
